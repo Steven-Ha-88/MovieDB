@@ -9,14 +9,21 @@
 }
 
 .menu__logo {
-  width: 150px;
+  width: 100px;
   float: left;
+  padding-top: 17px;
+}
+
+@media (max-width: 600px) {
+  .menu__logo {
+    padding-top: 0px;
+
+  }
 }
 
 .menu__logo a {
   display: inline-block;
   font-size: 20px;
-  padding: 19px 20px;
 }
 
 .menu__container .ant-menu-item {
@@ -49,7 +56,8 @@
   height: 32px;
   padding: 6px;
   margin-top: 8px;
-  display: none !important; /* use of important to overwrite ant-btn */
+  display: none !important;
+  /* use of important to overwrite ant-btn */
   background: #3e91f7;
 }
 
