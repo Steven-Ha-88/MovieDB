@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { Typography } from 'antd';
-import { ImageWrapper } from './../styles';
+import { ImageWrapper } from './styles';
 
 const { Title } = Typography;
 
