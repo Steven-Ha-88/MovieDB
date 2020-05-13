@@ -8,15 +8,23 @@ import { FilmCard } from './../LandingPage/sections/FilmCard';
 export const DetailPage = props => {
   // console.log("props:", props);
 
-    const movieId = props.match.params.movieId
+    const Id = props.match.params.Id
     const [Movie, setMovie] = useState([])
     const [Casts, setCasts] = useState([])
     const [LoadingForMovie, setLoadingForMovie] = useState(true)
     const [LoadingForCasts, setLoadingForCasts] = useState(true)
+    console.log(props);
 
   useEffect(() => {
-    let endpointForMovieInfo = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`;
-    fetchDetailInfo(endpointForMovieInfo)
+    let endpointForMovieInfo = `${API_URL}movie/${Id}?api_key=${API_KEY}&language=en-US`;
+    let endpointForTvInfo = `${API_URL}tv/${Id}?api_key=${API_KEY}&language=en-US`;
+
+    if(props.match.path === "/movies/:Id") {
+      fetchDetailInfo(endpointForMovieInfo)
+    } else {
+      fetchDetailInfo(endpointForTvInfo)
+    }
+
   },[])
 
   const fetchDetailInfo = (endpoint) => {
@@ -28,14 +36,25 @@ export const DetailPage = props => {
             setMovie(result)
             setLoadingForMovie(false)
 
-            let endpointForCasts = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
-            fetch(endpointForCasts)
+
+
+            let endpointForMovieCasts = `${API_URL}movie/${Id}/credits?api_key=${API_KEY}`;
+            let endpointForTvCasts = `${API_URL}tv/${Id}/credits?api_key=${API_KEY}`;
+            if(props.match.path === "/movies/:Id") {
+              fetch(endpointForMovieCasts)
                 .then(result => result.json())
                 .then(result => {
                     console.log(result)
                     setCasts(result.cast)
                 })
-
+            } else {
+              fetch(endpointForTvCasts)
+                .then(result => result.json())
+                .then(result => {
+                    console.log(result)
+                    setCasts(result.cast)
+                })
+            }
             setLoadingForCasts(false)
         })
         .catch(error => console.error('Error:', error)

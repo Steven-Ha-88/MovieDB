@@ -63,7 +63,7 @@ function LandingPage() {
                         title={MainMovieImage.original_title}
                         text={MainMovieImage.overview}/>
                 }
-
+                {/* Latest Movies */}
                 <div>
                     <h2 style={{margin: "20px 0 0 15px"}}>Latest Movies</h2>
                     <MoviesScroll>
@@ -75,11 +75,13 @@ function LandingPage() {
                                         : null}
                                     movieId={movie.id}
                                     title={movie.original_title}
+                                    type="movies"
                                 />
                             </React.Fragment>
                         ))}
                     </MoviesScroll>
                 </div>
+                {/* Latest Tv Series */}
                 <div>
                     <h2 style={{margin: "20px 0 0 15px"}}>Latest TV Series</h2>
                     <MoviesScroll>
@@ -91,6 +93,7 @@ function LandingPage() {
                                         : null}
                                     movieId={tv.id}
                                     title={tv.name}
+                                    type="tv"
                                 />
                             </React.Fragment>
                         ))}

@@ -11,7 +11,6 @@ function ImageBanner(props) {
   const {media, image} = props;
 
 
-
     return (
         <Container image={image}>
             <Wrapper>
@@ -21,10 +20,19 @@ function ImageBanner(props) {
                   </ImageWrapper>
                 </MediaCover>
                 <MediaDetails>
-                  <div style={{width: "100%"}}>
-                    <h1>{media.title}</h1>
-                    <p>{media.tagline}</p>
+                  <div style={{width: "100%", color: "white"}}>
+                    <h1 style={{marginBottom: "0px", color: "white"}}>{media.title}</h1>
+                    <div style={{ marginBottom: "20px"}}>
+                      {media.release_date}
+                      {media.genres && media.genres.map((item, index) => {
+                        return <span key={item.id}>{` • ${item.name} `}</span>
+                      })}
+                      • {media.runtime}mins
+                    </div>
+                    <p><i>{media.tagline}</i></p>
                     <Overview>{media.overview}</Overview>
+                    <a href={media.homepage}>Watch Now!</a>
+
                   </div>
                 </MediaDetails>
             </Wrapper>

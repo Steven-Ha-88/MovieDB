@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 export const Container = styled.div`
-  background-image: linear-gradient(to right, rgba(13.73%, 18.04%, 14.90%, 1.00) 150px, rgba(21.96%, 23.53%, 22.35%, 0.84) 100%);
+  background-image: url(${props => props.image}),linear-gradient(to bottom right, black, #bcbcbc66);
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: saturation;
@@ -53,18 +53,20 @@ export const ImageWrapper = styled.div`
 `;
 
 export const MediaDetails = styled.div`
-    margin-left: 50px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    @media (max-width: 600px) {
-      margin-left: 0px;
+margin-left: 50px;
+display: flex;
+align-items: center;
+width: 100%;
+@media (max-width: 600px) {
+  margin-left: 0px;
+  margin-top: 50px;
 
     }`;
 
 
 export const Overview = styled.div`
     width: 100%;
+    margin-bottom: 10px;
     @media (min-width: 1200px) {
       width: 700px;
     }`;
