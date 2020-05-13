@@ -7,7 +7,7 @@ export const Container = styled.div`
   background-size: cover;
   background-blend-mode: saturation;
 
-  height: 60vh;
+  height: 70vh;
   width: 100%;
   position: relative;
   display: flex;
@@ -15,7 +15,7 @@ export const Container = styled.div`
   align-items: center;
 
   @media (max-width: 700px) {
-    height: 100vh;
+    height: auto;
   }
 
 

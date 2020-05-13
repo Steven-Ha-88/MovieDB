@@ -17,7 +17,7 @@ function ImageBanner(props) {
             <Wrapper>
                 <MediaCover>
                   <ImageWrapper>
-                    <img  style={{width: "100%", height: "100%"}}src={ `${IMAGE_BASE_URL}${POSTER_SIZE}${media.poster_path}`}/>
+                    <img  style={{width: "100%", height: "100%", borderRadius:"8px"}}src={ `${IMAGE_BASE_URL}${POSTER_SIZE}${media.poster_path}`}/>
                   </ImageWrapper>
                 </MediaCover>
                 <MediaDetails>

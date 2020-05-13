@@ -4,7 +4,7 @@ import { Container } from './styles';
 export const FilmCard = props => {
   return (
     <Container>
-      <a href={`/movies/${props.movieId}`}>
+      <a href={props.movieId ? `/movies/${props.movieId}` : null}>
         <div>
           <img style={{width: "100%", borderRadius: "5px"}} src={props.image}/>
         </div>

@@ -16,12 +16,11 @@ function LandingPage() {
     
     useEffect(() => {
         const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
-        const endpoint_tv = `${API_URL}tv/popular?api_key=${API_KEY}&language=en-US&page=1`;
-        fetchMovies(endpoint)
-        fetchTv(endpoint_tv);
+       
+        fetchMoviesAndTv(endpoint)
     }, [])
         
-    const fetchMovies = (endpoint) => {
+    const fetchMoviesAndTv = (endpoint) => {
         fetch(endpoint)
             .then(res => res.json())
             .then(res => {
@@ -29,65 +28,82 @@ function LandingPage() {
                 // console.log('Movies',...Movies)
                 // console.log('res',...res.results)
                 setMovies([...Movies, ...res.results])
-                setMainMovieImage(MainMovieImage || res.results[7])
+                setMainMovieImage(MainMovieImage || res.results[19])
                 setCurrentPage(res.page)
-            }, setLoading(false))
+
+                const endpoint_tv = `${API_URL}tv/popular?api_key=${API_KEY}&language=en-US&page=1`;
+
+                fetch(endpoint_tv)
+                    .then(res => res.json())
+                    .then(res => {
+                        console.log("TV:", res)
+                        setTv([...Tv, ...res.results])
+                    }, setLoading(false))
+                    .catch(error => console.error('Error:', error)
+            )
+            })
             .catch(error => console.error('Error:', error)
             )
     }
 
-    const fetchTv = (endpoint) => {
-        fetch(endpoint)
-            .then(res => res.json())
-            .then(res => {
-                console.log("TV:", res)
-                setTv([...Tv, ...res.results])
-            }, setLoading(false))
-            .catch(error => console.error('Error:', error)
-            )
-    }
+    const renderLanding = () => {
 
+        console.log("loading.state:", Loading)
+        if(Loading) {
+            return(
+                <>
+                    <div>Loading...</div>
+                </>
+            ); 
+        } else {
+            return (
+            <>
+                {MainMovieImage && <ImageBanner 
+                        image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${MainMovieImage.backdrop_path}`}
+                        title={MainMovieImage.original_title}
+                        text={MainMovieImage.overview}/>
+                }
+
+                <div>
+                    <h2 style={{margin: "20px 0 0 15px"}}>Latest Movies</h2>
+                    <MoviesScroll>
+                        {Movies && Movies.map((movie, index) => (
+                            <React.Fragment key={index}>
+                                <FilmCard
+                                    image={movie.poster_path ?
+                                        `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
+                                        : null}
+                                    movieId={movie.id}
+                                    title={movie.original_title}
+                                />
+                            </React.Fragment>
+                        ))}
+                    </MoviesScroll>
+                </div>
+                <div>
+                    <h2 style={{margin: "20px 0 0 15px"}}>Latest TV Series</h2>
+                    <MoviesScroll>
+                        { Tv && Tv.map((tv, index) => (
+                            <React.Fragment key={index}>
+                                <FilmCard
+                                    image={tv.poster_path ?
+                                        `${IMAGE_BASE_URL}${POSTER_SIZE}${tv.poster_path}`
+                                        : null}
+                                    movieId={tv.id}
+                                    title={tv.name}
+                                />
+                            </React.Fragment>
+                        ))}
+                    </MoviesScroll>
+                </div>
+            </>
+            );
+        }
+    }
 
     return (
         <>
-            {MainMovieImage && <ImageBanner 
-                    image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${MainMovieImage.backdrop_path}`}
-                    title={MainMovieImage.original_title}
-                    text={MainMovieImage.overview}/>}
-            {/* Latest Films */}
-            <div style={{padding: "0px 40px"}}>
-                <h2 style={{margin: "20px 0 0 15px"}}>Latest Movies</h2>
-                <MoviesScroll>
-                    {Movies && Movies.map((movie, index) => (
-                        <React.Fragment key={index}>
-                            <FilmCard
-                                image={movie.poster_path ?
-                                    `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
-                                    : null}
-                                movieId={movie.id}
-                                title={movie.original_title}
-                            />
-                        </React.Fragment>
-                    ))}
-                </MoviesScroll>
-            </div>
-             {/* Latest TV Series */}
-            <div style={{padding: "0px 40px"}}>
-                <h2 style={{margin: "20px 0 0 15px"}}>Latest TV Series</h2>
-                <MoviesScroll>
-                    { Tv && Tv.map((tv, index) => (
-                        <React.Fragment key={index}>
-                            <FilmCard
-                                image={tv.poster_path ?
-                                    `${IMAGE_BASE_URL}${POSTER_SIZE}${tv.poster_path}`
-                                    : null}
-                                movieId={tv.id}
-                                title={tv.name}
-                            />
-                        </React.Fragment>
-                    ))}
-                </MoviesScroll>
-            </div>
+            {renderLanding()}
         </>
         )
     }

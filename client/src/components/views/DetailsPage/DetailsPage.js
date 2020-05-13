@@ -54,7 +54,6 @@ export const DetailPage = props => {
                                 image={cast.profile_path ?
                                     `${IMAGE_BASE_URL}${POSTER_SIZE}${cast.profile_path}`
                                     : null}
-                                movieId={cast.id}
                                 title={cast.name}
                             />
                         </React.Fragment>
