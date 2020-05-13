@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE, POSTER_SIZE } from './../../Config';
+import MediaBanner from './sections/MediaBanner';
+import { MoviesScroll } from './../LandingPage/styles';
+import { FilmCard } from './../LandingPage/sections/FilmCard'; 
 
 
 export const DetailPage = props => {
@@ -41,7 +44,23 @@ export const DetailPage = props => {
   
   return (
     <div>
-      SUP BRO
+      <MediaBanner  media={Movie} image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movie.backdrop_path}`}/>
+      <div style={{padding: "0px 40px"}}>
+                <h2 style={{margin: "20px 0 0 15px"}}>The Cast</h2>
+                <MoviesScroll>
+                    { Casts && Casts.map((cast, index) => (
+                        <React.Fragment key={index}>
+                            <FilmCard
+                                image={cast.profile_path ?
+                                    `${IMAGE_BASE_URL}${POSTER_SIZE}${cast.profile_path}`
+                                    : null}
+                                movieId={cast.id}
+                                title={cast.name}
+                            />
+                        </React.Fragment>
+                    ))}
+                </MoviesScroll>
+            </div>
     </div>
   );
 }

@@ -10,7 +10,6 @@ position: relative;
 
 export const Container = styled.div`
   width: 200px;
-  height: 360px;
   padding: 5px;
   margin: 10px;
   flex: 0 0 auto;
