@@ -9,11 +9,10 @@ export const DetailPage = props => {
   // console.log("props:", props);
 
     const Id = props.match.params.Id
-    const [Movie, setMovie] = useState([])
+    const [Media, setMedia] = useState([])
     const [Casts, setCasts] = useState([])
     const [LoadingForMovie, setLoadingForMovie] = useState(true)
     const [LoadingForCasts, setLoadingForCasts] = useState(true)
-    console.log(props);
 
   useEffect(() => {
     let endpointForMovieInfo = `${API_URL}movie/${Id}?api_key=${API_KEY}&language=en-US`;
@@ -33,10 +32,8 @@ export const DetailPage = props => {
         .then(result => result.json())
         .then(result => {
             console.log("result", result)
-            setMovie(result)
+            setMedia(result)
             setLoadingForMovie(false)
-
-
 
             let endpointForMovieCasts = `${API_URL}movie/${Id}/credits?api_key=${API_KEY}`;
             let endpointForTvCasts = `${API_URL}tv/${Id}/credits?api_key=${API_KEY}`;
@@ -63,7 +60,7 @@ export const DetailPage = props => {
   
   return (
     <div>
-      <MediaBanner  media={Movie} image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movie.backdrop_path}`}/>
+      <MediaBanner  media={Media} image={`${IMAGE_BASE_URL}${IMAGE_SIZE}/${Media.backdrop_path}`}/>
       <div style={{padding: "0px 40px"}}>
                 <h2 style={{margin: "20px 0 0 15px"}}>The Cast</h2>
                 <MoviesScroll>
@@ -71,7 +68,7 @@ export const DetailPage = props => {
                         <React.Fragment key={index}>
                             <FilmCard
                                 image={cast.profile_path ?
-                                    `${IMAGE_BASE_URL}${POSTER_SIZE}${cast.profile_path}`
+                                    `${IMAGE_BASE_URL}${POSTER_SIZE}/${cast.profile_path}`
                                     : null}
                                 title={cast.name}
                             />
