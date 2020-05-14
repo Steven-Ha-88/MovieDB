@@ -7,7 +7,7 @@ export const Container = styled.div`
   background-size: cover;
   background-blend-mode: saturation;
 
-  height: 70vh;
+  height: auto;
   width: 100%;
   position: relative;
   display: flex;
@@ -40,7 +40,7 @@ export const MediaCover = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
-  width: 200px;
+  width: 230px;
   height: 100%;
   display: flex;
   alignItems: center;
@@ -70,3 +70,11 @@ export const Overview = styled.div`
     @media (min-width: 1200px) {
       width: 700px;
     }`;
+
+export const LoadingContainer = styled.div`
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;

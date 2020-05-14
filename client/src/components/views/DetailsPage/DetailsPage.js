@@ -3,6 +3,7 @@ import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE, POSTER_SIZE } from './../
 import MediaBanner from './sections/MediaBanner';
 import { MoviesScroll } from './../LandingPage/styles';
 import { FilmCard } from './../LandingPage/sections/FilmCard'; 
+import { LoadingContainer } from './sections/styles';
 
 
 export const DetailPage = props => {
@@ -11,8 +12,8 @@ export const DetailPage = props => {
     const Id = props.match.params.Id
     const [Media, setMedia] = useState([])
     const [Casts, setCasts] = useState([])
-    const [LoadingForMovie, setLoadingForMovie] = useState(true)
-    const [LoadingForCasts, setLoadingForCasts] = useState(true)
+    const [Loading, setLoading] = useState(true)
+ 
 
   useEffect(() => {
     let endpointForMovieInfo = `${API_URL}movie/${Id}?api_key=${API_KEY}&language=en-US`;
@@ -33,7 +34,6 @@ export const DetailPage = props => {
         .then(result => {
             console.log("result", result)
             setMedia(result)
-            setLoadingForMovie(false)
 
             let endpointForMovieCasts = `${API_URL}movie/${Id}/credits?api_key=${API_KEY}`;
             let endpointForTvCasts = `${API_URL}tv/${Id}/credits?api_key=${API_KEY}`;
@@ -52,17 +52,27 @@ export const DetailPage = props => {
                     setCasts(result.cast)
                 })
             }
-            setLoadingForCasts(false)
+            setLoading(false)
         })
         .catch(error => console.error('Error:', error)
         )
 }
-  
-  return (
-    <div>
+
+const renderList = () => {
+  if(Loading) {
+    return (
+      <LoadingContainer>
+        <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+        </div>
+      </LoadingContainer>
+    )
+  } else {
+    return (
+      <div>
       <MediaBanner  media={Media} image={`${IMAGE_BASE_URL}${IMAGE_SIZE}/${Media.backdrop_path}`}/>
       <div style={{padding: "0px 40px"}}>
-                <h2 style={{margin: "20px 0 0 15px"}}>The Cast</h2>
+                <h5 style={{margin: "20px 0 0 15px"}}>The Cast</h5>
                 <MoviesScroll>
                     { Casts && Casts.map((cast, index) => (
                         <React.Fragment key={index}>
@@ -77,5 +87,13 @@ export const DetailPage = props => {
                 </MoviesScroll>
             </div>
     </div>
+    )
+  }
+}
+  
+  return (
+    <>
+      {renderList()}
+    </>
   );
 }

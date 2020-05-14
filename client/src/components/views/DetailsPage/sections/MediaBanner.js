@@ -20,13 +20,14 @@ function ImageBanner(props) {
                   <div style={{width: "100%", color: "white"}}>
                     <h1 style={{marginBottom: "0px", color: "white"}}>{media.original_name ? media.original_name : media.original_title}</h1>
                     <div style={{ marginBottom: "20px", fontSize: "10px"}}>
-                      {media.release_date}
+                      {media.release_date ? media.release_date : media.first_air_date}
                       {media.genres && media.genres.map((item, index) => {
                         return <span key={item.id}>{` • ${item.name} `}</span>
                       })}
-                      • {media.runtime}mins
+                      • {media.runtime ? media.runtime : media.number_of_seasons}{media.runtime ? " mins " : " Seasons "}
                       •<Favourite userId={localStorage.getItem('userId')} mediaId={media.id} mediaInfo={media}  />
                     </div>
+                    <h6 style={{color: "white"}}>Rating: {media.vote_average}</h6>
                     <p><i>{media.tagline}</i></p>
                     <Overview>{media.overview}</Overview>
                     <a href={media.homepage}>Watch Now!</a>     

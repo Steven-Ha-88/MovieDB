@@ -3,6 +3,7 @@ import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE, POSTER_SIZE } from './../
 import ImageBanner from './sections/ImageBanner';
 import { MoviesScroll } from './styles';
 import { FilmCard } from './sections/FilmCard';
+import { LoadingContainer } from './../DetailsPage/sections/styles';
 
 
 function LandingPage() {
@@ -28,7 +29,7 @@ function LandingPage() {
                 // console.log('Movies',...Movies)
                 // console.log('res',...res.results)
                 setMovies([...Movies, ...res.results])
-                setMainMovieImage(MainMovieImage || res.results[19])
+                setMainMovieImage(MainMovieImage || res.results[17])
                 setCurrentPage(res.page)
 
                 const endpoint_tv = `${API_URL}tv/popular?api_key=${API_KEY}&language=en-US&page=1`;
@@ -51,9 +52,11 @@ function LandingPage() {
         console.log("loading.state:", Loading)
         if(Loading) {
             return(
-                <>
-                    <div>Loading...</div>
-                </>
+                <LoadingContainer>
+                  <div className="spinner-border" role="status">
+                      <span className="sr-only">Loading...</span>
+                  </div>
+                </LoadingContainer>
             ); 
         } else {
             return (
@@ -65,7 +68,7 @@ function LandingPage() {
                 }
                 {/* Latest Movies */}
                 <div>
-                    <h2 style={{margin: "20px 0 0 15px"}}>Latest Movies</h2>
+                    <h5 style={{margin: "20px 0 0 15px"}}>Latest Movies</h5>
                     <MoviesScroll>
                         {Movies && Movies.map((movie, index) => (
                             <React.Fragment key={index}>
@@ -83,7 +86,7 @@ function LandingPage() {
                 </div>
                 {/* Latest Tv Series */}
                 <div>
-                    <h2 style={{margin: "20px 0 0 15px"}}>Latest TV Series</h2>
+                    <h5 style={{margin: "20px 0 0 15px"}}>Latest TV Series</h5>
                     <MoviesScroll>
                         { Tv && Tv.map((tv, index) => (
                             <React.Fragment key={index}>
