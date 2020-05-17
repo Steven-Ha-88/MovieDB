@@ -8,14 +8,23 @@ function Favourite(props) {
   const [favourite, setFavourite] = useState(false)
 
   const variable = {
-    userFrom: props.userFrom, 
+    userFrom: props.userId, 
     mediaId: props.mediaId, 
-    mediaTitle: props.mediaInfo.title, 
-    mediaImage: props.mediaInfo.backdrop_path, 
-    mediaRunTime: props.mediaInfo.runtime 
+    mediaTitle: props.mediaInfo.title ? props.mediaInfo.title : props.mediaInfo.original_name, 
+    mediaImage: props.mediaInfo.poster_path, 
+    mediaRunTime: props.mediaInfo.runtime ? props.mediaInfo.runtime : props.mediaInfo.episode_run_time[0],
+    mediaSeasons: props.mediaInfo.number_of_seasons ? props.mediaInfo.number_of_seasons : null,
+    mediaHomepage: props.mediaInfo.homepage,
+    mediaBackdrop: props.mediaInfo.backdrop_path,
+    mediaReleaseDate: props.mediaInfo.release_date ? props.mediaInfo.release_date : props.mediaInfo.first_air_date,
+    mediaGenres: props.mediaInfo.genres,
+    mediaRating: props.mediaInfo.vote_average,
+    mediaTagline: props.mediaInfo.tagline,
+    mediaDescription: props.mediaInfo.overview
   }
 
   useEffect(() => {
+    console.log("user_details", variable)
 
     axios.post('/api/favourite/favouriteNumber', variable)
       .then(response => {
@@ -64,7 +73,7 @@ function Favourite(props) {
 
   return (
       <>
-        <span onClick={handleFavouriteClick} style={{color: "#1890ff", cursor: "pointer"}}> {favourite ? "Remove from Favourites" : "Add to Favourites"} {favouriteNumber}</span>
+        <span onClick={handleFavouriteClick} style={{color: "#1890ff", cursor: "pointer"}}> {favourite ? "Remove from Watchlist" : "Add to Watchlist"}</span>
       </>
   );
 }

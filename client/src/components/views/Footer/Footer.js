@@ -6,7 +6,7 @@ function Footer() {
         <div style={{
             height: '200px', display: 'flex',
             flexDirection: 'column', alignItems: 'center',
-            justifyContent: 'center', fontSize:'1rem', backgroundColor:"#7aa1be"
+            justifyContent: 'center', fontSize:'1rem', backgroundColor:"rgb(53, 58, 64)"
         }}>
            <p> Happy Coding  <Icon type="smile" /></p>
         </div>

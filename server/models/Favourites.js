@@ -15,15 +15,36 @@ const favouriteSchema = mongoose.Schema({
   mediaImage: {
     type: String,
   },
-  mediaRuntime: {
+  mediaRunTime: {
+    type: Number,
+  },
+  mediaSeasons: {
+    type: Number,
+  },
+  mediaHomepage: {
     type: String,
-  }
+  },
+  mediaBackdrop: {
+    type: String,
+  },
+  mediaReleaseDate: {
+    type: String,
+  },
+  mediaGenres: {
+    type: Array,
+  },
+  mediaRating: {
+    type: Number,
+  },
+  mediaTagline: {
+    type: String,
+  },
+  mediaDescription: {
+    type: String,
+  },
 
-
-
+  
 })
-
-
 
 // MongoDB will create a collection called 'Favourite' using
 // the 'favouriteSchema

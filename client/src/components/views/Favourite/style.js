@@ -13,11 +13,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @media (min-width: 1024px) {
-    height: 80vh;
-  }
-
+  position: relative;
 
 `;
 
@@ -78,3 +74,23 @@ export const LoadingContainer = styled.div`
     justify-content: center;
     align-items: center;
 `;
+
+export const Remove = styled.span`
+    position: absolute;
+    color: white;
+    top: 10px;
+    right: 15px;
+    font-size: 16px; 
+    cursor: pointer;
+    font-family: 'Concert One', cursive;
+    `;
+
+export const WatchlistContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+
+`;
+

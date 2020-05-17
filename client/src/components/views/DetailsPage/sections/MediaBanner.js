@@ -1,6 +1,6 @@
 import React from 'react'
 import {IMAGE_BASE_URL, POSTER_SIZE } from './../../../Config';
-import Favourite from './Favourite';
+import FavouriteButton from './Favourite';
 
 import { Wrapper, Container, MediaCover, MediaDetails, ImageWrapper, Overview } from './styles';
 
@@ -13,7 +13,7 @@ function ImageBanner(props) {
             <Wrapper>
                 <MediaCover>
                   <ImageWrapper>
-                    <img  style={{width: "100%", height: "100%", borderRadius:"9px"}}src={ `${IMAGE_BASE_URL}${POSTER_SIZE}${media.poster_path}`}/>
+                    <img  alt="Backdrop images of film" style={{width: "100%", height: "100%", borderRadius:"9px"}}src={ `${IMAGE_BASE_URL}${POSTER_SIZE}${media.poster_path}`}/>
                   </ImageWrapper>
                 </MediaCover>
                 <MediaDetails>
@@ -25,7 +25,7 @@ function ImageBanner(props) {
                         return <span key={item.id}>{` • ${item.name} `}</span>
                       })}
                       • {media.runtime ? media.runtime : media.number_of_seasons}{media.runtime ? " mins " : " Seasons "}
-                      •<Favourite userId={localStorage.getItem('userId')} mediaId={media.id} mediaInfo={media}  />
+                      •<FavouriteButton userId={localStorage.getItem('userId')} mediaId={media.id} mediaInfo={media}  />
                     </div>
                     <h6 style={{color: "white"}}>Rating: {media.vote_average}</h6>
                     <p><i>{media.tagline}</i></p>

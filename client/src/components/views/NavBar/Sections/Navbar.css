@@ -1,5 +1,9 @@
 @import '~antd/dist/antd.css';
 
+/* a {
+  color: rgba(255, 255, 255, .5);
+} */
+
 .menu {
   padding: 0 20px;
   border-bottom: solid 1px #e8e8e8;
@@ -18,6 +22,58 @@
   .menu__logo {
     padding-top: 0px;
 
+  }
+}
+
+.right-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.signin-button {
+  margin-right: 20px;
+  color: rgba(255, 255, 255, .5);
+}
+
+.signup-button {
+  color: rgba(255, 255, 255, .5);
+}
+
+@media(max-width: 1000px) {
+  .signin-button {
+    margin: 8px 0;
+  }
+}
+
+.right-menu-style {
+  color: rgba(255, 255, 255, .5) !important;
+
+}
+
+.right-menu-style:hover {
+  color: rgba(255, 255, 255) !important;
+
+}
+
+
+@media(max-width: 1000px) {
+  .signup-button {
+    margin-top: 8px;
+  }
+}
+
+@media(max-width: 1000px) {
+  .logout-button {
+    margin: 8px 0px;
+
+  }
+}
+
+
+
+@media(max-width: 1000px) {
+  .right-menu {
+    flex-direction: column;
   }
 }
 

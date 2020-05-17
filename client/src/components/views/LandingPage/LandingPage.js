@@ -29,7 +29,7 @@ function LandingPage() {
                 // console.log('Movies',...Movies)
                 // console.log('res',...res.results)
                 setMovies([...Movies, ...res.results])
-                setMainMovieImage(MainMovieImage || res.results[17])
+                setMainMovieImage(MainMovieImage || res.results[res.results.length-1])
                 setCurrentPage(res.page)
 
                 const endpoint_tv = `${API_URL}tv/popular?api_key=${API_KEY}&language=en-US&page=1`;
@@ -49,7 +49,6 @@ function LandingPage() {
 
     const renderLanding = () => {
 
-        console.log("loading.state:", Loading)
         if(Loading) {
             return(
                 <LoadingContainer>
@@ -64,11 +63,12 @@ function LandingPage() {
                 {MainMovieImage && <ImageBanner 
                         image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${MainMovieImage.backdrop_path}`}
                         title={MainMovieImage.original_title}
-                        text={MainMovieImage.overview}/>
+                        text={MainMovieImage.overview}
+                        id={MainMovieImage.id}/>
                 }
                 {/* Latest Movies */}
-                <div>
-                    <h5 style={{margin: "20px 0 0 15px"}}>Latest Movies</h5>
+                <div style={{backgroundColor: "black"}}>
+                    <h5 style={{ padding:"20px 0 0 15px", color: "white"}}>Latest Movies</h5>
                     <MoviesScroll>
                         {Movies && Movies.map((movie, index) => (
                             <React.Fragment key={index}>
@@ -85,8 +85,8 @@ function LandingPage() {
                     </MoviesScroll>
                 </div>
                 {/* Latest Tv Series */}
-                <div>
-                    <h5 style={{margin: "20px 0 0 15px"}}>Latest TV Series</h5>
+                <div style={{backgroundColor: "black"}}>
+                    <h5 style={{ padding:"20px 0 0 15px", color: "white"}}>Latest TV Series</h5>
                     <MoviesScroll>
                         { Tv && Tv.map((tv, index) => (
                             <React.Fragment key={index}>

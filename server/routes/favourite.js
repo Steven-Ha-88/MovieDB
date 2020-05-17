@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Favourite } = require("./../models/Model");
+const { Favourite } = require("../models/Favourites");
 
 const { auth } = require("../middleware/auth");
 
@@ -16,8 +16,6 @@ router.post("/favouriteNumber", auth, (req, res) => {
           if(err) return res.status(400).send(err)
           res.status(200).json({ success: true, favouriteNumber: favourite.length })
         })
-
-
 });
 
 
@@ -25,7 +23,7 @@ router.post("/favourited", auth, (req, res) => {
 
     // Find Favourite information inside favourite collection by userId and movieId
 
-  Favourite.find({"mediaId": req.body.mediaId, "userFrom": req.body.userFrom})
+  Favourite.find({"mediaId": req.body.mediaId, "userFrom": req.body.userFrom })
       .exec(( err, favourite ) => {
         if(err) return res.status(400).send(err)
 
@@ -39,10 +37,10 @@ router.post("/favourited", auth, (req, res) => {
       })
 });
 
-router.post("/addToFavourite", auth, (req, res) => {
+router.post("/addToFavourite", (req, res) => {
   //save informtation about the media and user into favourite collection
 
-  console.log("LOL", req.body);
+  console.log("added to favourites!", req.body);
 
   const favourite = new Favourite(req.body);
 
@@ -63,6 +61,15 @@ router.post("/removeFromFavourite", auth, (req, res) => {
 
 });
 
+router.post("/getFavouriteMedia", (req, res) => {
 
+  Favourite.find({ 'userFrom': req.body.userFrom })
+  .exec((err, favourites) => {
+        
+          if (err) return res.status(400).send(err);
+          return res.status(200).json({ success: true, favourites })
+      })
+
+});
 
 module.exports = router;
