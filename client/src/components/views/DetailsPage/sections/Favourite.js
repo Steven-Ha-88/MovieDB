@@ -31,7 +31,7 @@ function Favourite(props) {
           if(response.data.success) {
             setFavouriteNumber(response.data.favouriteNumber)
           } else {
-            alert('failed to get favouriteNumber')
+            console.log('failed to get favouriteNumber')
           }
       })
     axios.post('/api/favourite/favourited', variable)
@@ -39,7 +39,7 @@ function Favourite(props) {
           if(response.data.success) {
             setFavourite(response.data.favourited)
           } else {
-            alert('failed to get favouriteInfo')
+            console.log('failed to get favouriteInfo')
           }
       })
   }, []);

@@ -3,8 +3,11 @@ import { WatchlistContainer, LoadingContainer } from './style';
 import axios from 'axios';
 import { IMAGE_BASE_URL, IMAGE_SIZE } from './../../Config';
 import WatchList from './MediaBanner';
+import { useSelector } from 'react-redux';
 
-function UserFavourites() {
+const UserFavourites = props => {
+
+  const user = useSelector(state => state.user)
 
   const [favouritesMedia, setFavouriteMedia] = useState([]);
   const [Loading, setLoading] = useState(true);
@@ -82,7 +85,7 @@ function UserFavourites() {
 
   return (
     <div>
-        {renderWishlist()}
+        {user.userData && !user.userData.isAuth ? props.history.push("/login") : renderWishlist()}
     </div>
   );
 }
