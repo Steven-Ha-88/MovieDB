@@ -9,8 +9,8 @@ export const Nav = styled.nav`
     transition: 0.5s;
     color: white !important;
     font-family: 'Roboto', sans-serif;
-    @media(max-width: 480px) {
-      position: fixed;
+    @media(max-width: 1000px) {
+      position: relative;
       background-color: black;
     }
 `;

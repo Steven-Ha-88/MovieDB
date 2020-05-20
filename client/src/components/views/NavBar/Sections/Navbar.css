@@ -25,29 +25,36 @@
   }
 }
 
-.right-menu {
+/* .right-menu {
   display: flex;
   flex-direction: row;
-}
+} */
 
 .signin-button {
   margin-right: 20px;
   color: rgba(255, 255, 255, .5);
+  display: inline-block;
+
 }
 
 .signup-button {
   color: rgba(255, 255, 255, .5);
+  display: inline-block;
+  margin: 8px 0;
 }
 
 @media(max-width: 1000px) {
   .signin-button {
     margin: 8px 0;
+    display: block;
+
   }
 }
 
 .right-menu-style {
   color: rgba(255, 255, 255) !important;
   margin: 8px 0;
+  text-align: center;
 
 }
 

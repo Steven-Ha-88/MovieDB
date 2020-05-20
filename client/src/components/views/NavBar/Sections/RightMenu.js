@@ -25,7 +25,7 @@ function RightMenu(props) {
           <a className="right-menu-style" href="/login">Sign In</a>
         </div>
         <div className="signup-button">
-          <a className="right-menu-style" href="/register">Sign Up</a>
+          <a style={{textAlign: "center"}}className="right-menu-style" href="/register">Sign Up</a>
         </div>
       </div>
     )
