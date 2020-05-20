@@ -3,6 +3,7 @@ import axios from 'axios';
 import { USER_SERVER } from '../../../Config';
 import { withRouter } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import './Navbar.css'
 
 function RightMenu(props) {
   const user = useSelector(state => state.user)
@@ -31,7 +32,7 @@ function RightMenu(props) {
   } else {
     return (
       <div className="logout-button">
-          <a className="right-menu-style" onClick={logoutHandler}>Log Out</a>
+          <a style={{color: "rgb(255, 255, 255)"}} className="right-menu-style" onClick={logoutHandler}>Log Out</a>
       </div>
     )
   }

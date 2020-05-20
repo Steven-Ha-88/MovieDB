@@ -1,22 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE, POSTER_SIZE } from './../../Config';
 import ImageBanner from './sections/ImageBanner';
-import { MoviesScroll } from './styles';
+import styled from 'styled-components';
+
 import { FilmCard } from './sections/FilmCard';
+import './styles.css';
 import { LoadingContainer } from './../DetailsPage/sections/styles';
 
+export const MoviesScroll = styled.div`
+display: flex;
+flex-wrap: nowrap;
+overflow-x: auto;
+`;
 
-function LandingPage() {
+const LandingPage = props => {
     
     const [Movies, setMovies] = useState([])
     const [Loading, setLoading] = useState(true)
     const [CurrentPage, setCurrentPage] = useState(0)
     const [Tv, setTv] = useState([])
+    const { path } = props;
 
     
     useEffect(() => {
         const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
        
+        path(false)
         fetchMoviesAndTv(endpoint)
     }, [])
         
@@ -47,6 +56,8 @@ function LandingPage() {
 
     console.log(Movies)
 
+   
+
     const renderLanding = () => {
 
         if(Loading) {
@@ -60,31 +71,31 @@ function LandingPage() {
         } else {
             return (
             <>
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
+                <div id="carouselExampleControls" className="carousel slide" data-ride="carousel" data-interval="2500">
+                    <div className="carousel-inner">
+                        <div className="carousel-item active">
                             <ImageBanner 
-                            image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[Movies.length-1].backdrop_path}`}
-                            movies={Movies[Movies.length-1]} />
+                            image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[Movies.length-5].backdrop_path}`}
+                            movies={Movies[Movies.length-5]} />
                         </div>
-                        <div class="carousel-item">
+                        <div className="carousel-item">
                             <ImageBanner 
-                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[6].backdrop_path}`}
-                                movies={Movies[6]}/>
+                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[1].backdrop_path}`}
+                                movies={Movies[1]}/>
                         </div>
-                        <div class="carousel-item">
+                        <div className="carousel-item">
                             <ImageBanner 
-                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[3].backdrop_path}`}
-                                movies={Movies[3]}/>
+                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[0].backdrop_path}`}
+                                movies={Movies[0]}/>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
+                    <a className="carousel-control-prev carosel-btn-wrapper" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span className="carosel-btn carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
+                    <a className=" carousel-control-next carosel-btn-wrapper" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span className="carosel-btn carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="sr-only">Next</span>
                     </a>
                 </div>  
            

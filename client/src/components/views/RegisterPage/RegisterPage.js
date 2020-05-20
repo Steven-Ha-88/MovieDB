@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import moment from "moment";
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -36,6 +36,24 @@ const tailFormItemLayout = {
 
 function RegisterPage(props) {
   const dispatch = useDispatch();
+
+  const { path } = props;
+
+
+  useEffect(() => {
+  
+    path(true);
+
+    
+    
+  },[])
+
+
+
+
+
+
+
   return (
 
     <Formik

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { loginUser } from "../../../_actions/user_actions";
 import { Formik } from 'formik';
@@ -9,15 +9,29 @@ import { useDispatch } from "react-redux";
 const { Title } = Typography;
 
 function LoginPage(props) {
+ 
+  const { path } = props;
+ 
+  useEffect(() => {
+    path(true);
+
+    
+    
+  },[])
+
+
   const dispatch = useDispatch();
   const rememberMeChecked = localStorage.getItem("rememberMe") ? true : false;
 
   const [formErrorMessage, setFormErrorMessage] = useState('')
   const [rememberMe, setRememberMe] = useState(rememberMeChecked)
-
+  
   const handleRememberMe = () => {
     setRememberMe(!rememberMe)
   };
+
+
+
 
   const initialEmail = localStorage.getItem("rememberMe") ? localStorage.getItem("rememberMe") : '';
 

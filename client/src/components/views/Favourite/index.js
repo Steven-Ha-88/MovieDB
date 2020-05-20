@@ -15,9 +15,15 @@ const UserFavourites = props => {
   const variables = {
     userFrom: localStorage.getItem('userId')
   }
+  
+  const { path } = props;
+
 
   useEffect(() => {
     fetchMedia();
+    path(true);
+
+    
     
   },[])
 
@@ -53,7 +59,7 @@ const UserFavourites = props => {
         })
 }
 
-  console.log("State:", favouritesMedia);
+  console.log("props", props);
 
   const renderTableBody = favouritesMedia && favouritesMedia.map((media,index) => {
     return <WatchList  key={media.mediaId} remove={handleRemove} media={media} image={`${IMAGE_BASE_URL}${IMAGE_SIZE}/${media.mediaBackdrop}`}/>

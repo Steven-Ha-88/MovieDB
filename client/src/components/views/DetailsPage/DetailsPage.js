@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE, POSTER_SIZE } from './../../Config';
 import MediaBanner from './sections/MediaBanner';
-import { MoviesScroll } from './../LandingPage/styles';
+import { MoviesScroll } from './../LandingPage/LandingPage';
 import { FilmCard } from './../LandingPage/sections/FilmCard'; 
 import { LoadingContainer } from './sections/styles';
 
@@ -70,7 +70,7 @@ const renderList = () => {
   } else {
     return (
       <div>
-      <MediaBanner  media={Media} image={`${IMAGE_BASE_URL}${IMAGE_SIZE}/${Media.backdrop_path}`}/>
+      <MediaBanner type={props.match.path} media={Media} image={`${IMAGE_BASE_URL}${IMAGE_SIZE}/${Media.backdrop_path}`}/>
       <div style={{padding: "0px 40px"}}>
                 <h5 style={{margin: "20px 0 0 15px"}}>The Cast</h5>
                 <MoviesScroll>

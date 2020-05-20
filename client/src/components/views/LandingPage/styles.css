@@ -1,0 +1,22 @@
+@media (min-width: 1024px) {
+  .carosel-btn {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
+.carosel-btn-wrapper {
+  width: 10%;
+}
+
+@media (max-width: 480px) {
+  .carosel-btn-wrapper {
+    width: 4%;
+  }
+}
+
+.my-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -6,6 +6,7 @@ export const ImageWrapper = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: saturation;
+  // background-attachment: fixed;
   height: 80vh;
   width: 100%;
   position: relative;
@@ -34,6 +35,10 @@ export const Text = styled.div`
   align-items: flex-start;
   flex-direction: column;
   margin-left: 20px;
+  @media(max-width: 480px) {
+    margin-left: 0px;
+    margin-top: 10px;
+  }
 `;
 
 export const Container = styled.div`

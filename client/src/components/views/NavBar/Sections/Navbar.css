@@ -46,14 +46,15 @@
 }
 
 .right-menu-style {
-  color: rgba(255, 255, 255, .5) !important;
+  color: rgba(255, 255, 255) !important;
+  margin: 8px 0;
 
 }
 
-.right-menu-style:hover {
+/* .right-menu-style:hover {
   color: rgba(255, 255, 255) !important;
 
-}
+} */
 
 
 @media(max-width: 1000px) {
