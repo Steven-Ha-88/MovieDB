@@ -53,6 +53,7 @@ export const FilmCover = styled.div`
   width: 130px;
   height: 100%;
   display: flex;
+  position: absolute:
   alignItems: center;
   @media (min-width: 1200px) {
     height: 70%;

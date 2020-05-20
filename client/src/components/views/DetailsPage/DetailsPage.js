@@ -71,7 +71,7 @@ const renderList = () => {
     return (
       <div>
       <MediaBanner type={props.match.path} media={Media} image={`${IMAGE_BASE_URL}${IMAGE_SIZE}/${Media.backdrop_path}`}/>
-      <div style={{padding: "0px 40px"}}>
+      <div>
                 <h5 style={{margin: "20px 0 0 15px"}}>The Cast</h5>
                 <MoviesScroll>
                     { Casts && Casts.map((cast, index) => (

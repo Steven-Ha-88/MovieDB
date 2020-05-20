@@ -38,7 +38,9 @@ function ImageBanner(props) {
                 <div>
                     <TextWrapper>
                         <FilmCover>
-                            <img  alt="Backdrop images of film" style={{width: "100%", height: "100%"}}src={ `${IMAGE_BASE_URL}${POSTER_SIZE}${props.movies.poster_path}`}/>
+                            <a href={`/movies/${props.movies.id}`}>
+                                 <img  alt="Backdrop images of film" style={{width: "100%", height: "100%"}}src={ `${IMAGE_BASE_URL}${POSTER_SIZE}${props.movies.poster_path}`}/>
+                            </a>
                         </FilmCover>
                         <Text>
                             <a href={`/movies/${props.movies.id}`}>

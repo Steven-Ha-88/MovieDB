@@ -6,14 +6,9 @@
 }
 
 .carosel-btn-wrapper {
-  width: 10%;
+  width: 2%;
 }
 
-@media (max-width: 480px) {
-  .carosel-btn-wrapper {
-    width: 4%;
-  }
-}
 
 .my-modal {
   display: flex;
