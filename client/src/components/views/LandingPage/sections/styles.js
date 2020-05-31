@@ -7,6 +7,7 @@ export const ImageWrapper = styled.div`
   background-size: cover;
   background-blend-mode: saturation;
   // background-attachment: fixed;
+  min-height: 400px;
   height: 80vh;
   width: 100%;
   position: relative;
