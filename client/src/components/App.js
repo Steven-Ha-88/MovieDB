@@ -28,7 +28,7 @@ function App() {
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
       <NavBar screen={noTransparency} />
-      <div style={{ minHeight: 'calc(100vh - 80px)', backgroundColor: "blackgit status"}}>
+      <div style={{ minHeight: 'calc(100vh - 80px)', backgroundColor: "black"}}>
         <Switch>
           <Route exact path="/" component={Auth((props) => <LandingPage {...props} path={navPath} />, false)} />
           <Route exact path="/login" component={Auth((props) => <LoginPage {...props} path={navPath} />, false)} />
