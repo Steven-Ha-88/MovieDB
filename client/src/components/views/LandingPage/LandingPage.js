@@ -75,18 +75,18 @@ const LandingPage = props => {
                     <div className="carousel-inner">
                         <div className="carousel-item active">
                             <ImageBanner 
-                            image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[Movies.length-4].backdrop_path}`}
-                            movies={Movies[Movies.length-4]} />
+                            image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[4].backdrop_path}`}
+                            movies={Movies[4]} />
                         </div>
                         <div className="carousel-item">
                             <ImageBanner 
-                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[Movies.length-1].backdrop_path}`}
-                                movies={Movies[Movies.length-1]}/>
+                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[Movies.length-5].backdrop_path}`}
+                                movies={Movies[Movies.length-5]}/>
                         </div>
                         <div className="carousel-item">
                             <ImageBanner 
-                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[6].backdrop_path}`}
-                                movies={Movies[6]}/>
+                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[11].backdrop_path}`}
+                                movies={Movies[11]}/>
                         </div>
                     </div>
                     <a className="carousel-control-prev carosel-btn-wrapper" href="#carouselExampleControls" role="button" data-slide="prev">

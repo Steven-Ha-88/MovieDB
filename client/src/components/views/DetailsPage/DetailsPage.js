@@ -18,12 +18,19 @@ export const DetailPage = props => {
   useEffect(() => {
     let endpointForMovieInfo = `${API_URL}movie/${Id}?api_key=${API_KEY}&language=en-US`;
     let endpointForTvInfo = `${API_URL}tv/${Id}?api_key=${API_KEY}&language=en-US`;
+    let test_search = `${API_URL}search/multi?api_key=${API_KEY}&query=${Id}&language=en-US`;
+
+    https://api.themoviedb.org/3/search/multi?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
 
     if(props.match.path === "/movies/:Id") {
       fetchDetailInfo(endpointForMovieInfo)
     } else {
       fetchDetailInfo(endpointForTvInfo)
     }
+
+    fetch(test_search)
+    .then(res => res.json())
+    .then(res => console.log("fdgfdg:", res));
 
   },[])
 
@@ -32,7 +39,6 @@ export const DetailPage = props => {
     fetch(endpoint)
         .then(result => result.json())
         .then(result => {
-            console.log("result", result)
             setMedia(result)
 
             let endpointForMovieCasts = `${API_URL}movie/${Id}/credits?api_key=${API_KEY}`;
@@ -57,6 +63,7 @@ export const DetailPage = props => {
         .catch(error => console.error('Error:', error)
         )
 }
+
 
 const renderList = () => {
   if(Loading) {
