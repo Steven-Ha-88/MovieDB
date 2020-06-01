@@ -4,15 +4,28 @@ import styled from 'styled-components';
 export const ImageWrapper = styled.div`
   background-image: url(${props => props.image}),linear-gradient(14deg, rgba(0,0,0,1) 13%, rgba(237,237,237,0) 54%, rgba(255,255,255,0) 100%);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
   background-blend-mode: saturation;
   // background-attachment: fixed;
-  min-height: 400px;
-  height: 80vh;
+  height: 500px;
+  min-width: 350px;
   width: 100%;
   position: relative;
 
-  
+  @media (min-width: 1300px) {
+    height: 80vh;
+  }
+
+  @media (max-width: 768px) {
+    background-image: url(${props => props.image}), linear-gradient(0deg, rgba(0,0,0,1) 11%, rgba(237,237,237,0) 100%, rgba(255,255,255,0) 100%);
+    height: 350px;
+  }
+
+  @media (max-width: 480px) {
+    background-image: url(${props => props.image}), linear-gradient(0deg, rgba(0,0,0,1) 46%, rgba(237,237,237,0) 100%, rgba(255,255,255,0) 100%);
+    background-size: 100%
+    height: 350px;
+  }
 `;
 
 export const TextWrapper = styled.div`
@@ -22,10 +35,12 @@ export const TextWrapper = styled.div`
   display: flex;
   flex-direction: row;
   margin-left: 2rem;
-  @media(max-width: 480px) {
+  @media(max-width: 768px) {
     margin-left: 0px;
     padding: 20px;
-    flex-direction: column;
+    bottom: 33px;
+    left: 10px;
+  
   }
 
 `;
@@ -37,7 +52,6 @@ export const Text = styled.div`
   flex-direction: column;
   margin-left: 20px;
   @media(max-width: 480px) {
-    margin-left: 0px;
     margin-top: 10px;
   }
 `;
@@ -59,7 +73,7 @@ export const FilmCover = styled.div`
   @media (min-width: 1200px) {
     height: 70%;
   }
-  @media (max-width: 700px) {
-    width: 200px;
+  @media (max-width: 768px) {
+    width: 115px;
   }
 `;

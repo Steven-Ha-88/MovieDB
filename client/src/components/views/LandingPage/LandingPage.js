@@ -101,7 +101,7 @@ const LandingPage = props => {
            
                 {/* Latest Movies */}
                 <div style={{backgroundColor: "black"}}>
-                    <h5 style={{ padding:"20px 0 0 15px", color: "white"}}>Latest Movies</h5>
+                    <h5 className="latest">Latest Movies</h5>
                     <MoviesScroll>
                         {Movies && Movies.map((movie, index) => (
                             <React.Fragment key={index}>
@@ -119,7 +119,7 @@ const LandingPage = props => {
                 </div>
                 {/* Latest Tv Series */}
                 <div style={{backgroundColor: "black"}}>
-                    <h5 style={{ padding:"20px 0 0 15px", color: "white"}}>Latest TV Series</h5>
+                    <h5 className="latest">Latest TV Series</h5>
                     <MoviesScroll>
                         { Tv && Tv.map((tv, index) => (
                             <React.Fragment key={index}>
