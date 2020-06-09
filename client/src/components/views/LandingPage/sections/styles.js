@@ -57,7 +57,7 @@ export const Text = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 200px;
+  width: 150px;
   padding: 5px;
   margin: 10px;
   flex: 0 0 auto;

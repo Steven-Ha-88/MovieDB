@@ -38,13 +38,13 @@ const NavBar = props => {
     return isTransparent;
   };  
 
-  
+  // DD293F
 
   const isTransparent = useTransparentHook(80);
   return (
     <Nav path={props.screen} isTransparent={isTransparent} className="navbar navbar-expand-lg navbar-dark">
   <a className="navbar-brand" href="/">
-    <img src={logo} width="100" className="d-inline-block align-top" alt="logo" loading="lazy" />
+   <img src={logo} alt="bebas-neue-font" border="0"width="80" />
   </a>
   <ToggleButton className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
@@ -52,13 +52,13 @@ const NavBar = props => {
   <div className="collapse navbar-collapse" id="navbarText">
     <ul style={{color: "white"}} className="navbar-nav mr-auto">
       <li className="nav-item">
-        <a style={{color: "rgb(255, 255, 255)"}}  className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+        <a style={{color: "rgb(255, 255, 255)", fontSize: "12px"}}  className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
       </li>
       <li className="nav-item">
-        <a style={{color: "rgb(255, 255, 255)"}}  className="nav-link" href="/favourites">Watchlist</a>
+        <a style={{color: "rgb(255, 255, 255)", fontSize: "12px"}}  className="nav-link" href="/favourites">Watchlist</a>
       </li>
       <li className="nav-item">
-        <a style={{color: "rgb(255, 255, 255)"}}  className="nav-link" href="#">Pricing</a>
+        <a style={{color: "rgb(255, 255, 255)", fontSize: "12px"}}  className="nav-link" href="#">Pricing</a>
       </li>
     </ul>
     <div>

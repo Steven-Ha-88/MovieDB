@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
-    background-color: ${({ isTransparent, path }) =>
-    isTransparent && !path  ? "transparent" : "black"};
+    background: ${({ isTransparent, path }) =>
+    isTransparent && !path  ? "linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0))" : "rgb(20, 20, 20)"};
     position: ${props => props.path ? "relative":"fixed"};
     z-index: 1000;
     width: 100%;
+    height: 50px;
     transition: 0.5s;
     color: white !important;
     font-family: 'Roboto', sans-serif;
     @media(max-width: 1000px) {
       position: relative;
-      background-color: black;
+      background: rgb(18,18,18);
+      background: linear-gradient(0deg, rgba(18,18,18,1) 0%, rgba(0,0,0,1) 100%); 
+      height: auto;
     }
 `;
 

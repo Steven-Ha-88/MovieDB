@@ -18,9 +18,7 @@ export const DetailPage = props => {
   useEffect(() => {
     let endpointForMovieInfo = `${API_URL}movie/${Id}?api_key=${API_KEY}&language=en-US`;
     let endpointForTvInfo = `${API_URL}tv/${Id}?api_key=${API_KEY}&language=en-US`;
-    let test_search = `${API_URL}search/multi?api_key=${API_KEY}&query=${Id}&language=en-US`;
-
-    https://api.themoviedb.org/3/search/multi?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
+    let test_search = `${API_URL}search/multi?api_key=${API_KEY}&query=brad&language=en-US`;
 
     if(props.match.path === "/movies/:Id") {
       fetchDetailInfo(endpointForMovieInfo)

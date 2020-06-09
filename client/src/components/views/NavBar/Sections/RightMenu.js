@@ -25,14 +25,14 @@ function RightMenu(props) {
           <a className="right-menu-style" href="/login">Sign In</a>
         </div>
         <div className="signup-button">
-          <a style={{textAlign: "center"}}className="right-menu-style" href="/register">Sign Up</a>
+          <a style={{textAlign: "center", fontSize: "12px"}}className="right-menu-style" href="/register">Sign Up</a>
         </div>
       </div>
     )
   } else {
     return (
       <div className="logout-button">
-          <a style={{color: "rgb(255, 255, 255)"}} className="right-menu-style" onClick={logoutHandler}>Log Out</a>
+          <a style={{color: "rgb(255, 255, 255)", fontSize: "12px"}} className="right-menu-style" onClick={logoutHandler}>Log Out</a>
       </div>
     )
   }
