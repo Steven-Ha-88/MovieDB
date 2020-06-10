@@ -9,7 +9,7 @@ export const FilmCard = props => {
         <div>
           <img alt="cast" style={{width: "100%", borderRadius: "5px"}} src={props.image ? props.image : cast}/>
         </div>
-        <div className="title-wrapper">
+        <div style={{ color: `${props.color}`}}>
          <p>{props.title}</p>
         </div>
       </a>

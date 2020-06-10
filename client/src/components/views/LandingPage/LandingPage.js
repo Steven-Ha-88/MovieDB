@@ -112,6 +112,7 @@ const LandingPage = props => {
                                     movieId={movie.id}
                                     title={movie.original_title}
                                     type="movies"
+                                    color="white"
                                 />
                             </React.Fragment>
                         ))}
@@ -130,6 +131,7 @@ const LandingPage = props => {
                                     movieId={tv.id}
                                     title={tv.name}
                                     type="tv"
+                                    color="white"
                                 />
                             </React.Fragment>
                         ))}

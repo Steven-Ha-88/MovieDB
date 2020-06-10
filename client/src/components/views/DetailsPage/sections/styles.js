@@ -8,6 +8,7 @@ export const Container = styled.div`
   background-blend-mode: saturation;
 
   height: auto;
+  min-height: 520px;
   width: 100%;
   position: relative;
   display: flex;
@@ -46,6 +47,7 @@ export const ImageWrapper = styled.div`
   alignItems: center;
   @media (min-width: 1200px) {
     height: 70%;
+    width: 230px;
   }
   @media (max-width: 700px) {
     width: 200px;

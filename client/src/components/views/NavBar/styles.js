@@ -18,6 +18,40 @@ export const Nav = styled.nav`
     }
 `;
 
+export const SearchList = styled.div`
+    width: 200px;
+    border-radius: 5px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(20,20,20);
+    position: absolute;
+    top: 45px;
+    overflow: scroll;
+    @media (max-width: 1000px) {
+      top: 200px;
+    }
+    `;
+
+export const Card = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  border-bottom: 1px solid grey;
+  :hover {
+    background-color: grey;
+  }
+
+`;
+
+export const CardText = styled.div`
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+
+`;
+
+
 
 export const ToggleButton = styled.button`
     border-color: rgba(255, 255, 255, 0) !important;
