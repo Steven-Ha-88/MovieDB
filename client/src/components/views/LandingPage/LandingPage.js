@@ -26,37 +26,37 @@ const LandingPage = props => {
         const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
        
         path(false)
-        fetchMoviesAndTv(endpoint)
-    }, [])
-        
-    const fetchMoviesAndTv = (endpoint) => {
+
+        let mounted = true
         fetch(endpoint)
-            .then(res => res.json())
-            .then(res => {
-                console.log("movies:", res)
-                // console.log('Movies',...Movies)
-                // console.log('res',...res.results)
+        .then(res => res.json())
+        .then(res => {
+            // console.log('Movies',...Movies)
+            // console.log('res',...res.results)
+            if (mounted) {
                 setMovies([...Movies, ...res.results])
                 setCurrentPage(res.page)
+            }
+            const endpoint_tv = `${API_URL}tv/popular?api_key=${API_KEY}&language=en-US&page=1`;
 
-                const endpoint_tv = `${API_URL}tv/popular?api_key=${API_KEY}&language=en-US&page=1`;
-
-                fetch(endpoint_tv)
-                    .then(res => res.json())
-                    .then(res => {
-                        console.log("TV:", res)
+            fetch(endpoint_tv)
+                .then(res => res.json())
+                .then(res => {
+                    if(mounted) {
                         setTv([...Tv, ...res.results])
-                    }, setLoading(false))
-                    .catch(error => console.error('Error:', error)
-            )
-            })
-            .catch(error => console.error('Error:', error)
-            )
-    }
-
-    console.log(Movies)
-
-   
+                        setLoading(false)
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        
+        })
+        .catch(error => console.error('Error:', error)
+        )
+        return function cleanup() {
+            mounted = false
+        }
+        
+    }, [])
 
     const renderLanding = () => {
 

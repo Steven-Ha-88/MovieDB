@@ -17,7 +17,6 @@ function ImageBanner(props) {
         fetch(`https://api.themoviedb.org/3/movie/${props.movies.id}/videos?api_key=${API_KEY}&language=en-US`)
         .then(res => res.json())
         .then(res => {
-            console.log("res", res)
             setTrailerId(trailerSelect(res.results));
             
         })

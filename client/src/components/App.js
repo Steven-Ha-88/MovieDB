@@ -25,10 +25,6 @@ function App() {
     setTransparency(path)
   };
 
-  
-
-
-
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
       <div style={{ minHeight: 'calc(100vh - 80px)', backgroundColor: "white"}}>

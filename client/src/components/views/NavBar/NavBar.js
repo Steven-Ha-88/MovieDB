@@ -30,7 +30,6 @@ const NavBar = props => {
       fetch(searchURL)
       .then(res => res.json())
       .then(res => {
-        console.log("RES",res.results);
         if(!search || !res.results.length) {
           setToggle(false)
         } else {
@@ -127,7 +126,6 @@ const NavBar = props => {
     } return null
   }
 
-  console.log("toggle", toggle);
 
   // DD293F
 
@@ -152,9 +150,9 @@ const NavBar = props => {
               <a style={{color: "rgb(255, 255, 255)", fontSize: "12px"}}  className="nav-link" href="#">Pricing</a>
             </li>
           </ul>
-          <form onSubmit={handleSubmit} class="form-inline my-2 my-lg-0">
-                <input value={search} placeholder="Search" onChange={ (e) => setSearch(e.target.value)} style={{height: "25px", fontSize: "11px", width: "200px"}} class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                <button style={{height: "25px", fontSize: "11px", lineHeight: "0.5"}} class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
+                <input value={search} placeholder="Search" onChange={ (e) => setSearch(e.target.value)} style={{height: "25px", fontSize: "11px", width: "200px"}} className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                <button style={{height: "25px", fontSize: "11px", lineHeight: "0.5"}} className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 {renderList()}
           </form>
           
