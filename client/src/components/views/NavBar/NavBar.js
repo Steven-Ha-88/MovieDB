@@ -139,7 +139,7 @@ const NavBar = props => {
                 <Input value={search} placeholder="Search" onChange={ (e) => setSearch(e.target.value)} className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                 {renderList()}
           </form>
-        <ToggleButton className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <ToggleButton onClick={() => setToggle(false)} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </ToggleButton>
         <div className="collapse navbar-collapse" id="navbarText">

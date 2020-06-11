@@ -32,6 +32,7 @@ export const SearchList = styled.div`
       top: 56px;
       left: 0;
       width: 100%;
+      height: auto;
     }
     `;
 
@@ -70,9 +71,9 @@ export const Input = styled.input`
 
 
 export const CardImg = styled.div`
-@media (max-width: 480px) {
-  display: none;
-}
+// @media (max-width: 480px) {
+//   display: none;
+// }
 
 `;
 
