@@ -39,6 +39,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: row;
   padding: 5px;
+  height: 56px;
   border-bottom: 1px solid grey;
   :hover {
     background-color: grey;
@@ -62,7 +63,7 @@ export const Input = styled.input`
 
   @media (max-width: 480px) {
     height: 28px;
-    width: 190px !important;
+    width: 181px !important;
   }
 
 `;
