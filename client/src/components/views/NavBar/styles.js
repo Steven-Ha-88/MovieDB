@@ -40,12 +40,44 @@ export const Card = styled.div`
   display: flex;
   flex-direction: row;
   padding: 5px;
-  height: 56px;
   border-bottom: 1px solid grey;
   :hover {
     background-color: grey;
   }
+  @media (max-width: 480px) {
+    height: auto;
+    padding: 10px;
+  }
 
+`;
+
+export const Text = styled.p`
+  color: #e1e1e1;
+  font-size: 10px;
+
+
+`;
+
+
+export const Title = styled.p`
+  font-size: 12px;
+  margin-bottom: 0px;
+  color: white;
+  @media (max-width: 480px) {
+    font-size: 14px;
+    
+  }
+
+`;
+
+
+
+
+export const ImgCover = styled.img`
+width: 40px;
+@media (max-width: 480px) {
+  width: 60px;
+}
 `;
 
 export const CardText = styled.div`

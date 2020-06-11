@@ -3,7 +3,7 @@ import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from './../../Config';
 import RightMenu from './Sections/RightMenu';
 import logo from './../../../Images/logo2.png';
 import styled from 'styled-components';
-import { Nav, ToggleButton, SearchList, Card, CardText, CardImg, Input } from "./styles";
+import { Nav, ToggleButton, SearchList, Card, CardText, CardImg, Input, ImgCover, Title, Text } from "./styles";
 import history from './../../history';
 import FilmIcon from './../../../Images/film_icon.png';
 import PersonIcon from './../../../Images/cast.png'
@@ -80,16 +80,20 @@ const NavBar = props => {
     }
 
   const ListItem = ({item, image}) => {
+
+    console.log(item.release_date);
     return (
       <Card>
                   <CardImg>
                     <a href={link(item.media_type, item.id)}>
-                        <img src={image} width="30" alt="cover" />
+                        <ImgCover src={image} alt="cover" />
                     </a>
                   </CardImg>
                   <CardText>
                     <a href={link(item.media_type, item.id)}>
-                      <p style={{fontSize: "10px", marginBottom: "0px", color: "white"}}>{item.title ? item.title : item.name }</p>
+                      <Title>{item.title ? item.title : item.name }</Title>
+                      <Text>{item.release_date ? item.release_date.slice(0,4) : null}</Text>
+                      <Text>{item.vote_average} <i style={{ color: "#ffff4c"}}className="fas fa-star"></i></Text>
                     </a>
                   </CardText>
       </Card>
@@ -135,13 +139,15 @@ const NavBar = props => {
         <a className="navbar-brand" href="/">
           <img src={logo} alt="bebas-neue-font" border="0"width="80" />
         </a>
-        <form style={{marginRight: "10px"}}onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
-                <Input value={search} placeholder="Search" onChange={ (e) => setSearch(e.target.value)} className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                {renderList()}
-          </form>
-        <ToggleButton onClick={() => setToggle(false)} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </ToggleButton>
+        <div>
+          <form style={{marginRight: "10px", display: "inline-block"}}onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
+                  <Input value={search} placeholder="Search" onChange={ (e) => setSearch(e.target.value)} className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                  {renderList()}
+            </form>
+          <ToggleButton onClick={() => setToggle(false)} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </ToggleButton>
+        </div>
         <div className="collapse navbar-collapse" id="navbarText">
           <ul style={{color: "white"}} className="navbar-nav mr-auto">
             <li className="nav-item">
