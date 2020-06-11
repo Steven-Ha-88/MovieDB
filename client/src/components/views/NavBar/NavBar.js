@@ -3,7 +3,7 @@ import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from './../../Config';
 import RightMenu from './Sections/RightMenu';
 import logo from './../../../Images/logo2.png';
 import styled from 'styled-components';
-import { Nav, ToggleButton, SearchList, Card, CardText } from "./styles";
+import { Nav, ToggleButton, SearchList, Card, CardText, Input } from "./styles";
 import history from './../../history';
 import FilmIcon from './../../../Images/film_icon.png';
 import PersonIcon from './../../../Images/cast.png'
@@ -135,6 +135,10 @@ const NavBar = props => {
         <a className="navbar-brand" href="/">
           <img src={logo} alt="bebas-neue-font" border="0"width="80" />
         </a>
+        <form style={{marginRight: "10px"}}onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
+                <Input value={search} placeholder="Search" onChange={ (e) => setSearch(e.target.value)} className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                {renderList()}
+          </form>
         <ToggleButton className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </ToggleButton>
@@ -150,11 +154,7 @@ const NavBar = props => {
               <a style={{color: "rgb(255, 255, 255)", fontSize: "12px"}}  className="nav-link" href="#">Pricing</a>
             </li>
           </ul>
-          <form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
-                <input value={search} placeholder="Search" onChange={ (e) => setSearch(e.target.value)} style={{height: "25px", fontSize: "11px", width: "200px"}} className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                <button style={{height: "25px", fontSize: "11px", lineHeight: "0.5"}} className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                {renderList()}
-          </form>
+  
           
         
           <div style={{ marginLeft: "10px"}}>

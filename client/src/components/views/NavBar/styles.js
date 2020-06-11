@@ -19,7 +19,7 @@ export const Nav = styled.nav`
 `;
 
 export const SearchList = styled.div`
-    width: 200px;
+    width: 230px;
     border-radius: 5px;
     height: 250px;
     display: flex;
@@ -29,7 +29,9 @@ export const SearchList = styled.div`
     top: 45px;
     overflow: scroll;
     @media (max-width: 1000px) {
-      top: 200px;
+      top: 56px;
+      left: 0;
+      width: 100%;
     }
     `;
 
@@ -48,6 +50,20 @@ export const CardText = styled.div`
   display: flex;
   align-items: center;
   padding-left: 10px;
+
+`;
+
+export const Input = styled.input`
+  height: 25px;
+  font-size: 11px;
+  width: 230px !important;
+  // display: inline-block;
+  // vertical-align: middle;
+
+  @media (max-width: 480px) {
+    height: 28px;
+    width: 220px !important;
+  }
 
 `;
 
