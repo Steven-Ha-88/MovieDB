@@ -3,7 +3,7 @@ import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from './../../Config';
 import RightMenu from './Sections/RightMenu';
 import logo from './../../../Images/logo2.png';
 import styled from 'styled-components';
-import { Nav, ToggleButton, SearchList, Card, CardText, Input } from "./styles";
+import { Nav, ToggleButton, SearchList, Card, CardText, CardImg, Input } from "./styles";
 import history from './../../history';
 import FilmIcon from './../../../Images/film_icon.png';
 import PersonIcon from './../../../Images/cast.png'
@@ -82,11 +82,11 @@ const NavBar = props => {
   const ListItem = ({item, image}) => {
     return (
       <Card>
-                  <div>
+                  <CardImg>
                     <a href={link(item.media_type, item.id)}>
                         <img src={image} width="30" alt="cover" />
                     </a>
-                  </div>
+                  </CardImg>
                   <CardText>
                     <a href={link(item.media_type, item.id)}>
                       <p style={{fontSize: "10px", marginBottom: "0px", color: "white"}}>{item.title ? item.title : item.name }</p>

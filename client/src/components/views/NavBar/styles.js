@@ -69,6 +69,13 @@ export const Input = styled.input`
 `;
 
 
+export const CardImg = styled.div`
+@media (max-width: 480px) {
+  display: none;
+}
+
+`;
+
 
 export const ToggleButton = styled.button`
     border-color: rgba(255, 255, 255, 0) !important;
