@@ -57,12 +57,12 @@ export const Input = styled.input`
   height: 25px;
   font-size: 11px;
   width: 230px !important;
-  // display: inline-block;
-  // vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 
   @media (max-width: 480px) {
     height: 28px;
-    width: 220px !important;
+    width: 190px !important;
   }
 
 `;
