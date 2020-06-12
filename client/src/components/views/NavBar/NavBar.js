@@ -3,7 +3,7 @@ import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from './../../Config';
 import RightMenu from './Sections/RightMenu';
 import logo from './../../../Images/logo2.png';
 import styled from 'styled-components';
-import { Nav, ToggleButton, SearchList, Card, CardText, CardImg, Input, ImgCover, Title, Text } from "./styles";
+import { Nav, ToggleButton, SearchList, Card, CardText, CardImg, Input, ImgCover, Title, Text, SearchIcon, Icon } from "./styles";
 import history from './../../history';
 import FilmIcon from './../../../Images/film_icon.png';
 import PersonIcon from './../../../Images/cast.png'
@@ -93,7 +93,7 @@ const NavBar = props => {
                     <a href={link(item.media_type, item.id)}>
                       <Title>{item.title ? item.title : item.name }</Title>
                       <Text>{item.release_date ? item.release_date.slice(0,4) : null}</Text>
-                      <Text>{item.vote_average} <i style={{ color: "#ffff4c"}}className="fas fa-star"></i></Text>
+                      <Text style={{marginBottom: "0px"}}>{item.vote_average} <i style={{ color: "#ffff4c"}}className="fas fa-star"></i></Text>
                     </a>
                   </CardText>
       </Card>
@@ -131,6 +131,7 @@ const NavBar = props => {
   }
 
 
+
   // DD293F
 
   const isTransparent = useTransparentHook(80);
@@ -140,8 +141,11 @@ const NavBar = props => {
           <img src={logo} alt="bebas-neue-font" border="0"width="80" />
         </a>
         <div>
-          <form style={{marginRight: "10px", display: "inline-block"}}onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
-                  <Input value={search} placeholder="Search" onChange={ (e) => setSearch(e.target.value)} className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+          <form style={{marginRight: "10px", display: "inline-block"}}onSubmit={handleSubmit} className="form-inline my-lg-0">
+                  <SearchIcon>
+                     <Icon className="fas fa-search"></Icon>
+                  </SearchIcon>
+                  <Input value={search} placeholder="Search" onChange={ (e) => setSearch(e.target.value)} type="search" placeholder="Search" aria-label="Search" />
                   {renderList()}
             </form>
           <ToggleButton onClick={() => setToggle(false)} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

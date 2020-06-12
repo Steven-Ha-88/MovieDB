@@ -26,7 +26,8 @@ export const SearchList = styled.div`
     flex-direction: column;
     background-color: rgb(20,20,20);
     position: absolute;
-    top: 45px;
+    top: 40px;
+    left: 129px;
     overflow: scroll;
     @media (max-width: 1000px) {
       top: 56px;
@@ -39,7 +40,7 @@ export const SearchList = styled.div`
 export const Card = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 5px;
+  padding: 10px;
   border-bottom: 1px solid grey;
   :hover {
     background-color: grey;
@@ -89,18 +90,50 @@ export const CardText = styled.div`
 
 export const Input = styled.input`
   height: 25px;
-  font-size: 11px;
+  font-size: 10px;
   width: 230px !important;
-  display: inline-block;
   vertical-align: middle;
-
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  background-color: #7e7e7e38;
+  /* border-radius: 5px; */
+  border-radius: 0px 5px 5px 0px;
   @media (max-width: 480px) {
     height: 28px;
-    width: 181px !important;
+    width: 153px !important;
+  }
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
   }
 
 `;
 
+export const SearchIcon = styled.div`
+  background-color: rgba(126, 126, 126, 0.22);
+  display: inline-block;
+  height: 25px;
+  border-radius: 5px 0px 0px 5px;
+  position: relative;
+  top: -1px;
+  @media (max-width: 480px) {
+    height: 28px;
+    top: -3px;
+ 
+  }
+`;
+
+export const Icon = styled.i`
+  margin: 0px 5px 0px 10px;
+  font-size: 12px;
+  position: relative;
+  top: 1px;
+  @media (max-width: 480px) {
+    top: 3px;
+  }
+
+`;
 
 export const CardImg = styled.div`
 // @media (max-width: 480px) {
@@ -112,4 +145,7 @@ export const CardImg = styled.div`
 
 export const ToggleButton = styled.button`
     border-color: rgba(255, 255, 255, 0) !important;
+    position: relative;
+    bottom: -2px;
+
 `;
