@@ -83,20 +83,24 @@ const NavBar = props => {
 
     console.log(item.release_date);
     return (
-      <Card>
-                  <CardImg>
-                    <a href={link(item.media_type, item.id)}>
-                        <ImgCover src={image} alt="cover" />
-                    </a>
-                  </CardImg>
-                  <CardText>
-                    <a href={link(item.media_type, item.id)}>
-                      <Title>{item.title ? item.title : item.name }</Title>
-                      <Text>{item.release_date ? item.release_date.slice(0,4) : null}</Text>
-                      <Text style={{marginBottom: "0px"}}>{item.vote_average} <i style={{ color: "#ffff4c"}}className="fas fa-star"></i></Text>
-                    </a>
-                  </CardText>
-      </Card>
+      <>
+        <a href={link(item.media_type, item.id)}>
+          <Card>
+                      <CardImg>
+                        
+                            <ImgCover src={image} alt="cover" />
+                        
+                      </CardImg>
+                      <CardText>
+                        
+                          <Title>{item.title ? item.title : item.name }</Title>
+                          <Text>{item.release_date ? item.release_date.slice(0,4) : null}</Text>
+    <Text style={{marginBottom: "0px"}}>{item.vote_average ? item.vote_average : null}{ item.vote_average ? <i style={{ color: "#ffff4c"}}className="fas fa-star"></i> : null}</Text>
+                        
+                      </CardText>
+          </Card>
+        </a>
+      </>
     )
   }
 

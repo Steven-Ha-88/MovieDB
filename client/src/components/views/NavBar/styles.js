@@ -19,7 +19,7 @@ export const Nav = styled.nav`
 `;
 
 export const SearchList = styled.div`
-    width: 230px;
+    width: 255px;
     border-radius: 5px;
     height: 250px;
     display: flex;
@@ -27,7 +27,7 @@ export const SearchList = styled.div`
     background-color: rgb(20,20,20);
     position: absolute;
     top: 40px;
-    left: 129px;
+    left: 113px;
     overflow: scroll;
     @media (max-width: 1000px) {
       top: 56px;
@@ -85,6 +85,9 @@ export const CardText = styled.div`
   display: flex;
   align-items: center;
   padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
 `;
 
