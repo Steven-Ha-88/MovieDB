@@ -75,8 +75,8 @@ const LandingPage = props => {
                     <div className="carousel-inner">
                         <div className="carousel-item active">
                             <ImageBanner 
-                            image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[4].backdrop_path}`}
-                            movies={Movies[4]} />
+                            image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[2].backdrop_path}`}
+                            movies={Movies[2]} />
                         </div>
                         <div className="carousel-item">
                             <ImageBanner 
@@ -85,8 +85,8 @@ const LandingPage = props => {
                         </div>
                         <div className="carousel-item">
                             <ImageBanner 
-                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[11].backdrop_path}`}
-                                movies={Movies[11]}/>
+                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[0].backdrop_path}`}
+                                movies={Movies[0]}/>
                         </div>
                     </div>
                     <a className="carousel-control-prev carosel-btn-wrapper" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -113,6 +113,7 @@ const LandingPage = props => {
                                     title={movie.original_title}
                                     type="movies"
                                     color="white"
+                                    disable
                                 />
                             </React.Fragment>
                         ))}
@@ -132,6 +133,7 @@ const LandingPage = props => {
                                     title={tv.name}
                                     type="tv"
                                     color="white"
+                                    disable
                                 />
                             </React.Fragment>
                         ))}

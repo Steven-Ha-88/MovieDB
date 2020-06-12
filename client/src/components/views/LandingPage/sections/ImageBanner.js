@@ -44,14 +44,14 @@ function ImageBanner(props) {
                         <Text>
                             <a href={`/movies/${props.movies.id}`}>
                                 <div>
-                                    <h2 style={{ color: 'white' }} level={2} > {props.movies.original_title} </h2>
+                                    <h4 style={{ color: 'white', fontSize: "20px" }} level={2} > {props.movies.original_title} </h4>
                                 </div>
                             </a>
                             <div style={{ cursor: "pointer" }} onClick={openModal}>
                                 <div style={{display: "inline-block", fontSize:"1.5rem", color: "#03a9f4"}}>
                                     <i className="far fa-play-circle"></i>
                                 </div>
-                                <div style={{display: "inline-block", marginLeft:"10px", paddingBottom: "20px"}} >
+                                <div style={{display: "inline-block", marginLeft:"10px"}} >
                                     <p style={{ color: 'white', fontSize: '1rem', position: "relative", bottom: "3px" }}>Watch the Trailer</p>
                                 </div>
                             </div>

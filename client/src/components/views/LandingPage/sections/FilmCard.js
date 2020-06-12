@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './styles';
+import { Container, TextContainer } from './styles';
 import cast from './../../../../Images/cast.png';
 
 export const FilmCard = props => {
@@ -9,9 +9,9 @@ export const FilmCard = props => {
         <div>
           <img alt="cast" style={{width: "100%", borderRadius: "5px"}} src={props.image ? props.image : cast}/>
         </div>
-        <div style={{ color: `${props.color}`}}>
+        <TextContainer disable={props.disable} color={props.color}>
          <p>{props.title}</p>
-        </div>
+        </TextContainer>
       </a>
     </Container>
   )

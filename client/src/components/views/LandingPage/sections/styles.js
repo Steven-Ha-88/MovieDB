@@ -18,7 +18,7 @@ export const ImageWrapper = styled.div`
 
   @media (max-width: 768px) {
     background-image: url(${props => props.image}), linear-gradient(0deg, rgba(0,0,0,1) 11%, rgba(237,237,237,0) 100%, rgba(255,255,255,0) 100%);
-    height: 350px;
+    height: 396px;
   }
 
   @media (max-width: 480px) {
@@ -62,6 +62,12 @@ export const Container = styled.div`
   margin: 10px;
   flex: 0 0 auto;
   
+`;
+
+export const TextContainer = styled.div`
+color: ${props => props.color};
+display:${props => props.disable ? "none" : null};
+
 `;
 
 export const FilmCover = styled.div`
