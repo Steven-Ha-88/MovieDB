@@ -44,7 +44,7 @@ function ImageBanner(props) {
                         <Text>
                             <a href={`/movies/${props.movies.id}`}>
                                 <div>
-                                    <h4 style={{ color: 'white', fontSize: "20px" }} level={2} > {props.movies.original_title} </h4>
+                                    <h4 style={{ color: 'white' }} level={2} > {props.movies.original_title} </h4>
                                 </div>
                             </a>
                             <div style={{ cursor: "pointer" }} onClick={openModal}>

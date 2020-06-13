@@ -6,7 +6,7 @@ export const Nav = styled.nav`
     position: ${props => props.path ? "relative":"fixed"};
     z-index: 1000;
     width: 100%;
-    height: 50px;
+    height: ${({isTransparent}) => isTransparent ? "75px" : " 50px" };
     transition: 0.5s;
     color: white !important;
     font-family: 'Roboto', sans-serif;
@@ -26,8 +26,7 @@ export const SearchList = styled.div`
     flex-direction: column;
     background-color: rgb(20,20,20);
     position: absolute;
-    top: 40px;
-    left: 113px;
+    top: 53px;
     overflow: scroll;
     @media (max-width: 1000px) {
       top: 56px;
@@ -36,6 +35,8 @@ export const SearchList = styled.div`
       height: auto;
     }
     `;
+
+
 
 export const Card = styled.div`
   display: flex;
@@ -91,6 +92,18 @@ export const CardText = styled.div`
 
 `;
 
+export const Form = styled.form`
+  margin-right: 10px;
+  display: inline-block;
+
+  @media (max-width: 1000px) {
+    display: ${props => props.web};
+  }
+  @media (min-width: 1000px) {
+    display: ${props => props.mobile};
+  }
+`;
+
 export const Input = styled.input`
   height: 25px;
   font-size: 10px;
@@ -122,7 +135,7 @@ export const SearchIcon = styled.div`
   top: -1px;
   @media (max-width: 480px) {
     height: 28px;
-    top: -3px;
+    top: -2px;
  
   }
 `;

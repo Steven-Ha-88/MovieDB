@@ -100,7 +100,7 @@ const LandingPage = props => {
                 </div>  
            
                 {/* Latest Movies */}
-                <div style={{backgroundColor: "black"}}>
+                <div style={{backgroundColor: "black", paddingTop: "20px"}}>
                     <h5 className="latest">Latest Movies</h5>
                     <MoviesScroll>
                         {Movies && Movies.map((movie, index) => (
