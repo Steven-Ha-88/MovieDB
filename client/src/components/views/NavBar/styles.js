@@ -132,7 +132,7 @@ export const SearchIcon = styled.div`
   height: 25px;
   border-radius: 5px 0px 0px 5px;
   position: relative;
-  top: -1px;
+  top: -2px;
   @media (max-width: 480px) {
     height: 28px;
     top: -2px;
