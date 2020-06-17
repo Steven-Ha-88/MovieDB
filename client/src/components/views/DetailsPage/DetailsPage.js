@@ -6,7 +6,7 @@ import { FilmCard } from './../LandingPage/sections/FilmCard';
 import { LoadingContainer } from './sections/styles';
 import axios from 'axios';
 
-import Comments from './sections/Comments'
+import Comments from './sections/Comments';
 import LikeDislikes from './sections/LikeDislikes';
 
 
