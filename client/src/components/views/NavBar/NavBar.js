@@ -3,7 +3,7 @@ import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from './../../Config';
 import RightMenu from './Sections/RightMenu';
 import logo from './../../../Images/logo2.png';
 import styled from 'styled-components';
-import { Nav, ToggleButton, SearchList, Card, CardText, CardImg, Input, ImgCover, Title, Text, SearchIcon, Icon, Form } from "./styles";
+import { Nav, ToggleButton, SearchList, Card, CardText, CardImg, Input, ImgCover, Title, Text, Icon, Form } from "./styles";
 import history from './../../history';
 import FilmIcon from './../../../Images/film_icon.png';
 import PersonIcon from './../../../Images/cast.png'
@@ -142,10 +142,10 @@ const NavBar = props => {
         </a>
         <div>
           <Form mobile="none" onSubmit={handleSubmit} className="form-inline my-lg-0">
-                  <SearchIcon>
+                  {/* <SearchIcon>
                      <Icon className="fas fa-search"></Icon>
-                  </SearchIcon>
-                  <Input value={search} placeholder="Search" onChange={ (e) => setSearch(e.target.value)} type="search" placeholder="Search" aria-label="Search" />
+                  </SearchIcon> */}
+                  <Input value={search} placeholder="Search..." onChange={ (e) => setSearch(e.target.value)} type="search" aria-label="Search" />
                   {renderList()}
             </Form>
           <ToggleButton onClick={() => setToggle(false)} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -166,10 +166,10 @@ const NavBar = props => {
           </ul>
 
           <Form web="none" onSubmit={handleSubmit} className="form-inline my-lg-0">
-                  <SearchIcon>
+                  {/* <SearchIcon>
                      <Icon className="fas fa-search"></Icon>
-                  </SearchIcon>
-                  <Input value={search} placeholder="Search" onChange={ (e) => setSearch(e.target.value)} type="search" placeholder="Search" aria-label="Search" />
+                  </SearchIcon> */}
+                  <Input value={search} placeholder="Search..." onChange={ (e) => setSearch(e.target.value)} type="search" aria-label="Search" />
                   {renderList()}
             </Form> 
           <div style={{ marginLeft: "10px"}}>

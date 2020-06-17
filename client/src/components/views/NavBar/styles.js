@@ -107,17 +107,18 @@ export const Form = styled.form`
 export const Input = styled.input`
   height: 25px;
   font-size: 10px;
-  width: 230px !important;
+  width: 255px !important;
   vertical-align: middle;
   display: inline-block;
+  padding-left: 10px;
   outline: 0;
   border: 0;
   background-color: #7e7e7e38;
   /* border-radius: 5px; */
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 5px;
   @media (max-width: 480px) {
     height: 28px;
-    width: 153px !important;
+    width: 165px !important;
   }
   ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
@@ -126,19 +127,25 @@ export const Input = styled.input`
 
 `;
 
-export const SearchIcon = styled.div`
-  background-color: rgba(126, 126, 126, 0.22);
-  display: inline-block;
-  height: 25px;
-  border-radius: 5px 0px 0px 5px;
-  position: relative;
-  top: -2px;
-  @media (max-width: 480px) {
-    height: 28px;
-    top: -2px;
+// export const SearchIcon = styled.div`
+//   background-color: rgba(126, 126, 126, 0.22);
+//   display: inline-block;
+//   height: 25px;
+//   border-radius: 5px 0px 0px 5px;
+//   position: relative;
+//   top: 0px;
+//   padding: 1px 2px;
+//   @media (max-width: 480px) {
+//     height: 28px;
+//     top: -2px;
  
-  }
-`;
+//   }
+//   @media (max-width: 1000px) {
+//     height: 28px;
+//     top: -1px;
+ 
+//   }
+// `;
 
 export const Icon = styled.i`
   margin: 0px 5px 0px 10px;
