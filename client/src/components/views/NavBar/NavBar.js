@@ -28,7 +28,8 @@ const NavBar = props => {
 
     useEffect(() => {
       let searchURL = `${API_URL}search/multi?api_key=${API_KEY}&query=${search}&language=en-US`;
-  
+      
+      
       fetch(searchURL)
       .then(res => res.json())
       .then(res => {
