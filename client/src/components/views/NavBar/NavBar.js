@@ -87,7 +87,7 @@ const NavBar = props => {
 
     return (
       <>
-        <a to={link(item.media_type, item.id)}>
+        <a href={link(item.media_type, item.id)}>
           <Card>
             <CardImg>                       
                 <ImgCover src={image} alt="cover" />

@@ -40,9 +40,9 @@ function Comments(props) {
     }
 
     return (
-        <div style={{padding: "30px"}}>
+        <div style={{padding: "10px"}}>
             <br />
-            <Title level={3}><i className="far fa-comments"></i> Share your opinions about {props.movieTitle} </Title>
+            <h5><i className="far fa-comments"></i> Share your opinions about {props.movieTitle} </h5>
             <hr />
             {/* Comment Lists  */}
             {console.log(props.CommentLists)}

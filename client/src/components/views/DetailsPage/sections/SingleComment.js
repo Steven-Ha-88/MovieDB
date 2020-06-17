@@ -44,7 +44,7 @@ function SingleComment(props) {
         <LikeDislikes comment commentId={props.comment._id} userId={localStorage.getItem('userId')} />,
         <span onClick={openReply} key="comment-basic-reply-to">Reply to </span>
     ]
-    console.log("READ THIS", props.comment.writer)
+    // console.log("READ THIS", props.comment.writer)
 
     return (
         <div>
