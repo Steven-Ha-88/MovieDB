@@ -8,6 +8,8 @@ import history from './../../history';
 import FilmIcon from './../../../Images/film_icon.png';
 import PersonIcon from './../../../Images/cast.png'
 import { link } from './../SearchList/index';
+import { Link } from 'react-router-dom';
+
 
 
 const Img = styled.img`
@@ -37,7 +39,7 @@ const NavBar = props => {
           setToggle(true);
         }
       });
-      console.log("your list", list);
+      
   
     },[search])
   
@@ -69,7 +71,7 @@ const NavBar = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(search);
+    
     if(!search) {
       alert("Please enter a film");
     }
@@ -79,12 +81,12 @@ const NavBar = props => {
     setSearch("");
     }
 
+
   const ListItem = ({item, image}) => {
 
-    console.log(item.release_date);
     return (
       <>
-        <a href={link(item.media_type, item.id)}>
+        <a to={link(item.media_type, item.id)}>
           <Card>
             <CardImg>                       
                 <ImgCover src={image} alt="cover" />
@@ -137,9 +139,9 @@ const NavBar = props => {
   const isTransparent = useTransparentHook(80);
   return (
     <Nav path={props.screen} isTransparent={isTransparent} className="navbar navbar-expand-lg navbar-dark">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           <img src={logo} alt="bebas-neue-font" border="0"width="80" />
-        </a>
+        </Link>
         <div>
           <Form mobile="none" onSubmit={handleSubmit} className="form-inline my-lg-0">
                   {/* <SearchIcon>
@@ -155,13 +157,13 @@ const NavBar = props => {
         <div className="collapse navbar-collapse" id="navbarText">
           <ul style={{color: "white"}} className="navbar-nav mr-auto">
             <li className="nav-item">
-              <a style={{color: "rgb(255, 255, 255)", fontSize: "12px"}}  className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+              <Link style={{color: "rgb(255, 255, 255)", fontSize: "12px"}}  className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
             </li>
             <li className="nav-item">
-              <a style={{color: "rgb(255, 255, 255)", fontSize: "12px"}}  className="nav-link" href="/favourites">Watchlist</a>
+              <Link style={{color: "rgb(255, 255, 255)", fontSize: "12px"}}  className="nav-link" to="/favourites">Watchlist</Link>
             </li>
             <li className="nav-item">
-              <a style={{color: "rgb(255, 255, 255)", fontSize: "12px"}}  className="nav-link" href="#">Pricing</a>
+              <Link style={{color: "rgb(255, 255, 255)", fontSize: "12px"}}  className="nav-link" to="#">Pricing</Link>
             </li>
           </ul>
 

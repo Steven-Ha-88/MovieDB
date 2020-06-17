@@ -28,8 +28,8 @@ function App() {
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
       <div style={{ minHeight: 'calc(100vh - 80px)', backgroundColor: "white"}}>
-      <NavBar screen={noTransparency} />
-        <Router history={history}>
+      <Router history={history}>
+          <NavBar screen={noTransparency} />
           <Route exact path="/" component={Auth((props) => <LandingPage {...props} path={navPath} />, false)} />
           <Route exact path="/login" component={Auth((props) => <LoginPage {...props} path={navPath} />, false)} />
           <Route exact path="/register" component={Auth((props) => <RegisterPage {...props} path={navPath} />, false)} />

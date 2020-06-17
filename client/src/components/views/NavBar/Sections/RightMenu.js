@@ -19,7 +19,7 @@ function RightMenu(props) {
     });
   };
 
-  console.log("userData", user.userData);
+  // console.log("userData", user.userData);
 
   if (user.userData && !user.userData.isAuth) {
     return (

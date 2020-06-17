@@ -80,7 +80,7 @@ function ImageBanner(props) {
                       •<FavouriteButton userId={localStorage.getItem('userId')} mediaId={media.id} mediaInfo={media}  />
                     </div>
                     {trailerButton()}
-                    <h6 style={{color: "white"}}>Rating: {media.vote_average}</h6>
+                    <h6 style={{color: "white"}}>{media.vote_average}<i style={{ color: "#ffff4c"}}className="fas fa-star"></i></h6>
                     <p><i>{media.tagline}</i></p>
                     <Overview>{media.overview}</Overview>
                     <a style={{fontSize: "1rem"}}href={media.homepage}>Watch Now!</a>     

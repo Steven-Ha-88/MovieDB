@@ -8,10 +8,8 @@ export const link = (mediatype, id) => {
   switch (mediatype) {
     case "movie":
       return `/movies/${id}`
-      break;
     case "tv":
       return `/tv/${id}`
-      break;
     default:
       return '/'
   }
@@ -26,6 +24,8 @@ const SearchList = props => {
   useEffect(() => {
     path(true);
     let search = `${API_URL}search/multi?api_key=${API_KEY}&query=${term}&language=en-US`;
+
+    window.scrollTo(0, 0);
 
     fetch(search)
     .then(res => res.json())

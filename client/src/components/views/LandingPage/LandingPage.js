@@ -24,7 +24,7 @@ const LandingPage = props => {
     
     useEffect(() => {
         const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
-       
+        window.scrollTo(0, 0);
         path(false)
 
         let mounted = true

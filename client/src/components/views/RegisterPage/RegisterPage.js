@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import moment from "moment";
 import { Formik } from 'formik';
+import faker from 'faker';
 import * as Yup from 'yup';
 import { registerUser } from "../../../_actions/user_actions";
 import { useDispatch } from "react-redux";
@@ -47,13 +48,7 @@ function RegisterPage(props) {
     
     
   },[])
-
-
-
-
-
-
-
+  
   return (
 
     <Formik
@@ -87,7 +82,7 @@ function RegisterPage(props) {
             password: values.password,
             name: values.name,
             lastname: values.lastname,
-            image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`
+            image: `${faker.image.avatar()}`
           };
 
           dispatch(registerUser(dataToSubmit)).then(response => {

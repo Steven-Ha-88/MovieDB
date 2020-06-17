@@ -5,6 +5,8 @@ import { ImageWrapper, Text, TextWrapper } from './styles';
 import {FilmCover} from './styles';
 import "./styles.css";
 import ReactModal from 'react-modal';
+import { Link } from 'react-router-dom';
+
 
 
 function ImageBanner(props) {
@@ -37,16 +39,16 @@ function ImageBanner(props) {
                 <div>
                     <TextWrapper>
                         <FilmCover>
-                            <a href={`/movies/${props.movies.id}`}>
+                            <Link to={`/movies/${props.movies.id}`}>
                                  <img  alt="Backdrop images of film" style={{width: "100%", height: "100%"}}src={ `${IMAGE_BASE_URL}${POSTER_SIZE}${props.movies.poster_path}`}/>
-                            </a>
+                            </Link>
                         </FilmCover>
                         <Text>
-                            <a href={`/movies/${props.movies.id}`}>
+                            <Link to={`/movies/${props.movies.id}`}>
                                 <div>
                                     <h4 style={{ color: 'white' }} level={2} > {props.movies.original_title} </h4>
                                 </div>
-                            </a>
+                            </Link>
                             <div style={{ cursor: "pointer" }} onClick={openModal}>
                                 <div style={{display: "inline-block", fontSize:"1.5rem", color: "#03a9f4"}}>
                                     <i className="far fa-play-circle"></i>
