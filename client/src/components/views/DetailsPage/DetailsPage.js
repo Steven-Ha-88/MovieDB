@@ -16,12 +16,19 @@ export const DetailPage = props => {
     const movieId = props.match.params.Id
     const [Media, setMedia] = useState([])
     const [Casts, setCasts] = useState([])
+    const [Similar, setSimilar] = useState([])
     const [Loading, setLoading] = useState(true)
     const [CommentLists, setCommentLists] = useState([])
     const movieVariable = {
       movieId: movieId
   }
 
+  const mediaType = () => {
+    const url = props.match.path;
+      if(url === "/movies/:Id") {
+        return "movie"
+      } return "tv"
+  }
   useEffect(() => {
     let endpointForMovieInfo = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`;
     let endpointForTvInfo = `${API_URL}tv/${movieId}?api_key=${API_KEY}&language=en-US`;
@@ -34,6 +41,12 @@ export const DetailPage = props => {
       fetchDetailInfo(endpointForTvInfo)
     }
 
+    fetch(`https://api.themoviedb.org/3/${mediaType()}/${movieId}/similar?api_key=${API_KEY}&language=en-US&page=1`)
+    .then(res => res.json())
+    .then(res => {
+      setSimilar(res.results);
+    })
+
      axios.post('/api/comment/getComments', movieVariable)
             .then(response => {
                 // console.log(response)
@@ -44,7 +57,7 @@ export const DetailPage = props => {
                     alert('Failed to get comments Info')
                 }
             })
-  },[])
+  },[movieId])
 
   const fetchDetailInfo = (endpoint) => {
 
@@ -81,6 +94,21 @@ const updateComment = (newComment) => {
 }
 
 
+const renderSimilar = () => {
+  return(
+    Similar && Similar.map(item => {
+      return  <FilmCard 
+      image={`${IMAGE_BASE_URL}${POSTER_SIZE}/${item.poster_path}`} 
+      movieId={item.id} 
+      type={mediaType()}
+      title={item.name}
+      key={item.id}/>
+
+    })
+  )
+}
+
+
 const renderList = () => {
   if(Loading) {
     return (
@@ -96,6 +124,7 @@ const renderList = () => {
       <MediaBanner type={props.match.path} media={Media} image={`${IMAGE_BASE_URL}${IMAGE_SIZE}/${Media.backdrop_path}`}/>
         {/* Body */}
         <div>
+       
           {/* Cast Section */}
           <h5 style={{margin: "20px 0 0 15px"}}>The Cast</h5>
             <MoviesScroll>
@@ -111,6 +140,7 @@ const renderList = () => {
                 ))}
             </MoviesScroll>
         </div>
+        
 
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <LikeDislikes video videoId={movieId} userId={localStorage.getItem('userId')} />
@@ -118,6 +148,16 @@ const renderList = () => {
 
           {/* Comments */}
         <Comments movieTitle={Media.original_title} CommentLists={CommentLists} postId={movieId} refreshFunction={updateComment} />
+        {/* Similar Movies */}
+        
+        {Similar.length === 0 ? 
+         null : <div style={{backgroundColor: "#191919", paddingTop: "10px"}}>
+         <h5 style={{margin: "20px 0 0 15px", color: "white"}}>Similar Movies</h5>
+         <MoviesScroll>
+               {renderSimilar()}
+         </MoviesScroll>
+       </div> 
+        }
     </div>
     )
   }

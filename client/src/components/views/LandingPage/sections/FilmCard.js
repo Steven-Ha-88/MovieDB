@@ -7,14 +7,14 @@ export const FilmCard = props => {
   const { movieId, type } = props;
   return (
     <Container>
-      <Link to={`/${type}/${movieId}`}>
+      <a href={`/${type === 'movie' ? 'movies' : type}/${movieId}`}>
         <div>
           <img alt="cast" style={{width: "100%", borderRadius: "5px"}} src={props.image ? props.image : cast}/>
         </div>
         <TextContainer disable={props.disable} color={props.color}>
          <p>{props.title}</p>
         </TextContainer>
-      </Link>
+      </a>
     </Container>
   )
 }

@@ -15,35 +15,46 @@ overflow-x: auto;
 
 const LandingPage = props => {
     
-    const [Movies, setMovies] = useState([])
-    const [Loading, setLoading] = useState(true)
-    const [CurrentPage, setCurrentPage] = useState(0)
-    const [Tv, setTv] = useState([])
+    const [movies, setMovies] = useState([]);
+    const [tv, setTv] = useState([]);
+    const [trending, setTrend] = useState([]); 
+    const [loading, setLoading] = useState(true);
+    // const [CurrentPage, setCurrentPage] = useState(0);
     const { path } = props;
-
+    
     
     useEffect(() => {
-        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+        const popular = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+        const popular_tv = `${API_URL}tv/popular?api_key=${API_KEY}&language=en-US&page=1`;
+        const trend = `${API_URL}trending/all/day?api_key=${API_KEY}&language=en-US&page=1`;
+
         window.scrollTo(0, 0);
         path(false)
 
         let mounted = true
-        fetch(endpoint)
+        fetch(trend)
+        .then(res => res.json())
+        .then(res => {
+            if(mounted) {
+                setTrend(res.results);
+            }
+        })
+        
+        fetch(popular)
         .then(res => res.json())
         .then(res => {
             // console.log('Movies',...Movies)
             // console.log('res',...res.results)
             if (mounted) {
-                setMovies([...Movies, ...res.results])
-                setCurrentPage(res.page)
+                setMovies([...movies, ...res.results])
+                // setCurrentPage(res.page)
             }
-            const endpoint_tv = `${API_URL}tv/popular?api_key=${API_KEY}&language=en-US&page=1`;
-
-            fetch(endpoint_tv)
+            
+            fetch(popular_tv)
                 .then(res => res.json())
                 .then(res => {
                     if(mounted) {
-                        setTv([...Tv, ...res.results])
+                        setTv([...tv, ...res.results])
                         setLoading(false)
                     }
                 })
@@ -58,9 +69,12 @@ const LandingPage = props => {
         
     }, [])
 
+
+
+
     const renderLanding = () => {
 
-        if(Loading) {
+        if(loading) {
             return(
                 <LoadingContainer>
                   <div className="spinner-border" role="status">
@@ -75,18 +89,18 @@ const LandingPage = props => {
                     <div className="carousel-inner">
                         <div className="carousel-item active">
                             <ImageBanner 
-                            image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[2].backdrop_path}`}
-                            movies={Movies[2]} />
+                            image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${movies[2].backdrop_path}`}
+                            movies={movies[2]} />
                         </div>
                         <div className="carousel-item">
                             <ImageBanner 
-                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[Movies.length-5].backdrop_path}`}
-                                movies={Movies[Movies.length-5]}/>
+                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${movies[movies.length-5].backdrop_path}`}
+                                movies={movies[movies.length-5]}/>
                         </div>
                         <div className="carousel-item">
                             <ImageBanner 
-                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${Movies[0].backdrop_path}`}
-                                movies={Movies[0]}/>
+                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${movies[0].backdrop_path}`}
+                                movies={movies[0]}/>
                         </div>
                     </div>
                     <a className="carousel-control-prev carosel-btn-wrapper" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -98,12 +112,12 @@ const LandingPage = props => {
                         <span className="sr-only">Next</span>
                     </a>
                 </div>  
-           
-                {/* Latest Movies */}
+
+                      {/* Trending */}
                 <div style={{backgroundColor: "black", paddingTop: "20px"}}>
-                    <h5 className="latest">Latest Movies</h5>
+                    <h5 className="heading">Trending</h5>
                     <MoviesScroll>
-                        {Movies && Movies.map((movie, index) => (
+                        {trending && trending.map((movie, index) => (
                             <React.Fragment key={index}>
                                 <FilmCard
                                     image={movie.poster_path ?
@@ -111,7 +125,28 @@ const LandingPage = props => {
                                         : null}
                                     movieId={movie.id}
                                     title={movie.original_title}
-                                    type="movies"
+                                    type={movie.media_type}
+                                    color="white"
+                                    disable
+                                />
+                            </React.Fragment>
+                        ))}
+                    </MoviesScroll>
+                </div>
+           
+                {/* Latest Movies */}
+                <div style={{backgroundColor: "black", paddingTop: "10px"}}>
+                    <h5 className="heading">Popular Movies</h5>
+                    <MoviesScroll>
+                        {movies && movies.map((movie, index) => (
+                            <React.Fragment key={index}>
+                                <FilmCard
+                                    image={movie.poster_path ?
+                                        `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
+                                        : null}
+                                    movieId={movie.id}
+                                    title={movie.original_title}
+                                    type="movie"
                                     color="white"
                                     disable
                                 />
@@ -120,10 +155,10 @@ const LandingPage = props => {
                     </MoviesScroll>
                 </div>
                 {/* Latest Tv Series */}
-                <div style={{backgroundColor: "black"}}>
-                    <h5 className="latest">Latest TV Series</h5>
+                <div style={{backgroundColor: "black", paddingTop: "10px"}}>
+                    <h5 className="heading">Popular TV Series</h5>
                     <MoviesScroll>
-                        { Tv && Tv.map((tv, index) => (
+                        { tv && tv.map((tv, index) => (
                             <React.Fragment key={index}>
                                 <FilmCard
                                     image={tv.poster_path ?

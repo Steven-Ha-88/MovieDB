@@ -45,7 +45,7 @@ function Comments(props) {
             <h5><i className="far fa-comments"></i> Share your opinions about {props.movieTitle} </h5>
             <hr />
             {/* Comment Lists  */}
-            {console.log(props.CommentLists)}
+            {/* {console.log(props.CommentLists)} */}
 
             {props.CommentLists && props.CommentLists.map((comment, index) => (
                 (!comment.responseTo &&

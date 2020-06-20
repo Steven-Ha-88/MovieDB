@@ -30,7 +30,6 @@ function ImageBanner(props) {
     fetch(endpoint)
       .then(res => res.json())
       .then(res => {
-          console.log("res", res)
           setTrailerId(trailerSelect(res.results));
           
       })
