@@ -30,8 +30,8 @@ export const DetailPage = props => {
       } return "tv"
   }
   useEffect(() => {
-    let endpointForMovieInfo = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`;
-    let endpointForTvInfo = `${API_URL}tv/${movieId}?api_key=${API_KEY}&language=en-US`;
+    let endpointForMovieInfo = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US&append_to_response=images,videos,credits`;
+    let endpointForTvInfo = `${API_URL}tv/${movieId}?api_key=${API_KEY}&language=en-US&append_to_response=images,videos,credits`;
 
     window.scrollTo(0, 0);
 
@@ -60,29 +60,12 @@ export const DetailPage = props => {
   },[movieId])
 
   const fetchDetailInfo = (endpoint) => {
-
     fetch(endpoint)
         .then(result => result.json())
         .then(result => {
+            console.log("ahha", result);
             setMedia(result)
-
-            let endpointForMovieCasts = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
-            let endpointForTvCasts = `${API_URL}tv/${movieId}/credits?api_key=${API_KEY}`;
-            if(props.match.path === "/movies/:Id") {
-              fetch(endpointForMovieCasts)
-                .then(result => result.json())
-                .then(result => {
-                    
-                    setCasts(result.cast)
-                })
-            } else {
-              fetch(endpointForTvCasts)
-                .then(result => result.json())
-                .then(result => {
-                    
-                    setCasts(result.cast)
-                })
-            }
+            setCasts(result.credits.cast)
             setLoading(false)
         })
         .catch(error => console.error('Error:', error)
@@ -92,7 +75,6 @@ export const DetailPage = props => {
 const updateComment = (newComment) => {
   setCommentLists(CommentLists.concat(newComment))
 }
-
 
 const renderSimilar = () => {
   return(
@@ -107,7 +89,6 @@ const renderSimilar = () => {
     })
   )
 }
-
 
 const renderList = () => {
   if(Loading) {
@@ -130,12 +111,16 @@ const renderList = () => {
             <MoviesScroll>
                 { Casts && Casts.map((cast, index) => (
                     <React.Fragment key={index}>
+                      
                         <FilmCard
                             image={cast.profile_path ?
                                 `${IMAGE_BASE_URL}${POSTER_SIZE}/${cast.profile_path}`
                                 : null}
                             title={cast.name}
+                            type="people"
+                            movieId={cast.id}
                         />
+                  
                     </React.Fragment>
                 ))}
             </MoviesScroll>

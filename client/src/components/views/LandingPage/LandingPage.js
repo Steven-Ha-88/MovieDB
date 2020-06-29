@@ -19,8 +19,13 @@ const LandingPage = props => {
     const [tv, setTv] = useState([]);
     const [trending, setTrend] = useState([]); 
     const [loading, setLoading] = useState(true);
+
     // const [CurrentPage, setCurrentPage] = useState(0);
     const { path } = props;
+
+    
+    
+    // setPeople(steven);
     
     
     useEffect(() => {
@@ -30,7 +35,7 @@ const LandingPage = props => {
 
         window.scrollTo(0, 0);
         path(false)
-
+        
         let mounted = true
         fetch(trend)
         .then(res => res.json())
@@ -51,15 +56,15 @@ const LandingPage = props => {
             }
             
             fetch(popular_tv)
-                .then(res => res.json())
-                .then(res => {
-                    if(mounted) {
-                        setTv([...tv, ...res.results])
-                        setLoading(false)
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        
+            .then(res => res.json())
+            .then(res => {
+                if(mounted) {
+                    setTv([...tv, ...res.results])
+                    setLoading(false)
+                }
+            })
+            .catch(error => console.error('Error:', error));
+            
         })
         .catch(error => console.error('Error:', error)
         )
@@ -68,9 +73,7 @@ const LandingPage = props => {
         }
         
     }, [])
-
-
-
+    
 
     const renderLanding = () => {
 
@@ -89,8 +92,8 @@ const LandingPage = props => {
                     <div className="carousel-inner">
                         <div className="carousel-item active">
                             <ImageBanner 
-                            image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${movies[2].backdrop_path}`}
-                            movies={movies[2]} />
+                            image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${movies[8].backdrop_path}`}
+                            movies={movies[8]} />
                         </div>
                         <div className="carousel-item">
                             <ImageBanner 
@@ -99,8 +102,8 @@ const LandingPage = props => {
                         </div>
                         <div className="carousel-item">
                             <ImageBanner 
-                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${movies[0].backdrop_path}`}
-                                movies={movies[0]}/>
+                                image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${movies[14].backdrop_path}`}
+                                movies={movies[14]}/>
                         </div>
                     </div>
                     <a className="carousel-control-prev carosel-btn-wrapper" href="#carouselExampleControls" role="button" data-slide="prev">

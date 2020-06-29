@@ -11,7 +11,7 @@ export const link = (mediatype, id) => {
     case "tv":
       return `/tv/${id}`
     default:
-      return '/'
+      return `/people/${id}`
   }
 
 }

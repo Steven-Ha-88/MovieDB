@@ -6,6 +6,7 @@ import LandingPage from "./views/LandingPage/LandingPage.js";
 import SearchPage from "./views/SearchList/index";
 import LoginPage from "./views/LoginPage/LoginPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
+import CastingPage from "./views/CastingPage/CastingPage";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer"
 import { DetailPage } from './views/DetailsPage/DetailsPage';
@@ -37,7 +38,8 @@ function App() {
           <Route exact path="/tv/:Id" component={Auth(DetailPage, null)} /> 
           <Route exact path="/favourites" component={Auth((props) => <Favourite {...props} path={navPath} />)} /> 
           <Route exact path="/trailers/:id" component={Auth(Trailers, null)} />  
-          <Route exact path="/search/:query" component={Auth((props) => <SearchPage {...props}  path={navPath}/>)} />                   
+          <Route exact path="/search/:query" component={Auth((props) => <SearchPage {...props}  path={navPath}/>)} />      
+          <Route exact path="/people/:id" component={Auth((props) => <CastingPage {...props}  path={navPath}/>)} />                                
        </Router>
       </div>
       <Footer />
