@@ -2,7 +2,7 @@ import React, { Suspense, useState } from "react";
 import { Route, Router } from "react-router-dom";
 import Auth from "../hoc/auth";
 // pages for this product
-import LandingPage from "./views/LandingPage/index.js";
+import LandingPage from "./views/LandingPage/index";
 import SearchPage from "./views/SearchList/index";
 import LoginPage from "./views/LoginPage/LoginPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
