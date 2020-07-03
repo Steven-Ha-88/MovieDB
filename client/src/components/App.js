@@ -11,7 +11,7 @@ import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer";
 import { DetailPage } from "./views/DetailsPage/index";
 import Favourite from "./views/Favourite/index";
-import Trailers from "./views/Trailers/index";
+import Trailers from "./views/Trailers/index.tsx";
 import history from "./history";
 import ViewPopularMovies from "./views/ViewAllMovies/index";
 

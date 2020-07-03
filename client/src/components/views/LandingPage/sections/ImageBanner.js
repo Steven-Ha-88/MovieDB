@@ -103,7 +103,6 @@ function ImageBanner(props) {
           src={`https://www.youtube.com/embed/${
             trailerId[0] && trailerId[0].key
           }`}></iframe>
-        }
         <span className='remove-modal' onClick={() => setOpen(false)}>
           <b>X</b>
         </span>
