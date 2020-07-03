@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 export const Container = styled.div`
-  background-image: url(${props => props.image}),linear-gradient(to bottom right, black, #bcbcbc66);
+  background-image: url(${(props) => props.image}),
+    linear-gradient(to bottom right, black, #bcbcbc66);
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: saturation;
@@ -14,7 +14,6 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-
 `;
 
 export const Wrapper = styled.div`
@@ -39,7 +38,7 @@ export const ImageWrapper = styled.div`
   width: 230px;
   height: 100%;
   display: flex;
-  alignItems: center;
+  alignitems: center;
   @media (min-width: 1200px) {
     height: 70%;
   }
@@ -49,48 +48,46 @@ export const ImageWrapper = styled.div`
 `;
 
 export const MediaDetails = styled.div`
-margin-left: 50px;
-display: flex;
-align-items: center;
-width: 100%;
-@media (max-width: 600px) {
-  margin-left: 0px;
-  margin-top: 50px;
-
-    }`;
-
+  margin-left: 50px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  @media (max-width: 600px) {
+    margin-left: 0px;
+    margin-top: 50px;
+  }
+`;
 
 export const Overview = styled.div`
-    width: 100%;
-    margin-bottom: 10px;
-    @media (min-width: 1200px) {
-      width: 700px;
-    }`;
+  width: 100%;
+  margin-bottom: 10px;
+  @media (min-width: 1200px) {
+    width: 700px;
+  }
+`;
 
 export const LoadingContainer = styled.div`
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Remove = styled.span`
-    position: absolute;
-    color: white;
-    top: 10px;
-    right: 15px;
-    font-size: 16px; 
-    cursor: pointer;
-    font-family: 'Concert One', cursive;
-    `;
-
-export const WatchlistContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 50px;
-
+  position: absolute;
+  color: white;
+  top: 10px;
+  right: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Concert One", cursive;
 `;
 
+export const WatchlistContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+`;

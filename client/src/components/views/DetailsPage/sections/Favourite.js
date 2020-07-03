@@ -42,6 +42,7 @@ function Favourite(props) {
             console.log('failed to get favouriteInfo')
           }
       })
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleFavouriteClick = () => {

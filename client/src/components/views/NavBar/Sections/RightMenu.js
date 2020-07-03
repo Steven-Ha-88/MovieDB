@@ -37,7 +37,7 @@ function RightMenu(props) {
     return (
       <div>
         <div className="logout-button">
-            <a style={{color: "rgb(255, 255, 255)", fontSize: "12px"}} className="right-menu-style" onClick={logoutHandler}>Log Out</a>
+            <span style={{color: "rgb(255, 255, 255)", fontSize: "12px", cursor: "pointer"}} className="right-menu-style" onClick={logoutHandler}>Log Out</span>
         </div>
       </div>
     )

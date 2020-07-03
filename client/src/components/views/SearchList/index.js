@@ -30,7 +30,7 @@ const SearchList = props => {
     fetch(search)
     .then(res => res.json())
     .then(res => setList(!res.results.length ? null : res.results));
-  },[term]);
+  },[term, path]);
 
 
   const ListItem = ({ item, image }) => {

@@ -1,42 +1,46 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Nav = styled.nav`
-    background: ${({ isTransparent, path }) =>
-    isTransparent && !path  ? "linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0))" : "rgb(20, 20, 20)"};
-    position: ${props => props.path ? "relative":"fixed"};
-    z-index: 1000;
-    width: 100%;
-    height: ${({isTransparent}) => isTransparent ? "75px" : " 50px" };
-    transition: 0.5s;
-    color: white !important;
-    font-family: 'Roboto', sans-serif;
-    @media(max-width: 1000px) {
-      position: relative;
-      background: rgb(18,18,18);
-      background: linear-gradient(0deg, rgba(18,18,18,1) 0%, rgba(0,0,0,1) 100%); 
-      height: auto;
-    }
+  background: ${({ isTransparent, path }) =>
+    isTransparent && !path
+      ? "linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0))"
+      : "rgb(20, 20, 20)"};
+  position: ${(props) => (props.path ? "relative" : "fixed")};
+  z-index: 1000;
+  width: 100%;
+  height: ${({ isTransparent }) => (isTransparent ? "75px" : " 50px")};
+  transition: 0.5s;
+  color: white !important;
+  font-family: "Roboto", sans-serif;
+  @media (max-width: 1000px) {
+    position: relative;
+    background: rgb(18, 18, 18);
+    background: linear-gradient(
+      0deg,
+      rgba(18, 18, 18, 1) 0%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    height: auto;
+  }
 `;
 
 export const SearchList = styled.div`
-    width: 255px;
-    border-radius: 5px;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(20,20,20);
-    position: absolute;
-    top: 53px;
-    overflow: scroll;
-    @media (max-width: 1000px) {
-      top: 56px;
-      left: 0;
-      width: 100%;
-      height: auto;
-    }
-    `;
-
-
+  width: 255px;
+  border-radius: 5px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(20, 20, 20);
+  position: absolute;
+  top: 53px;
+  overflow: scroll;
+  @media (max-width: 1000px) {
+    top: 56px;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+`;
 
 export const Card = styled.div`
   display: flex;
@@ -50,16 +54,12 @@ export const Card = styled.div`
     height: auto;
     padding: 10px;
   }
-
 `;
 
 export const Text = styled.p`
   color: #e1e1e1;
   font-size: 10px;
-
-
 `;
-
 
 export const Title = styled.p`
   font-size: 12px;
@@ -67,19 +67,14 @@ export const Title = styled.p`
   color: white;
   @media (max-width: 480px) {
     font-size: 14px;
-    
   }
-
 `;
 
-
-
-
 export const ImgCover = styled.img`
-width: 40px;
-@media (max-width: 480px) {
-  width: 60px;
-}
+  width: 40px;
+  @media (max-width: 480px) {
+    width: 60px;
+  }
 `;
 
 export const CardText = styled.div`
@@ -89,7 +84,6 @@ export const CardText = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
 `;
 
 export const Form = styled.form`
@@ -97,10 +91,10 @@ export const Form = styled.form`
   display: inline-block;
 
   @media (max-width: 1000px) {
-    display: ${props => props.web};
+    display: ${(props) => props.web};
   }
   @media (min-width: 1000px) {
-    display: ${props => props.mobile};
+    display: ${(props) => props.mobile};
   }
 `;
 
@@ -120,11 +114,11 @@ export const Input = styled.input`
     height: 28px;
     width: 165px !important;
   }
-  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
     opacity: 1; /* Firefox */
   }
-
 `;
 
 // export const SearchIcon = styled.div`
@@ -138,12 +132,12 @@ export const Input = styled.input`
 //   @media (max-width: 480px) {
 //     height: 28px;
 //     top: -2px;
- 
+
 //   }
 //   @media (max-width: 1000px) {
 //     height: 28px;
 //     top: -1px;
- 
+
 //   }
 // `;
 
@@ -155,20 +149,16 @@ export const Icon = styled.i`
   @media (max-width: 480px) {
     top: 3px;
   }
-
 `;
 
 export const CardImg = styled.div`
-// @media (max-width: 480px) {
-//   display: none;
-// }
-
+  // @media (max-width: 480px) {
+  //   display: none;
+  // }
 `;
 
-
 export const ToggleButton = styled.button`
-    border-color: rgba(255, 255, 255, 0) !important;
-    position: relative;
-    bottom: -2px;
-
+  border-color: rgba(255, 255, 255, 0) !important;
+  position: relative;
+  bottom: -2px;
 `;

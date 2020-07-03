@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import moment from "moment";
+// import moment from "moment";
 import { Formik } from 'formik';
 import faker from 'faker';
 import * as Yup from 'yup';
@@ -46,7 +46,7 @@ function RegisterPage(props) {
     path(true);
 
     
-    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   
   return (
@@ -102,12 +102,12 @@ function RegisterPage(props) {
           values,
           touched,
           errors,
-          dirty,
+          // dirty,
           isSubmitting,
           handleChange,
           handleBlur,
           handleSubmit,
-          handleReset,
+          // handleReset,
         } = props;
         return (
           <div className="app">

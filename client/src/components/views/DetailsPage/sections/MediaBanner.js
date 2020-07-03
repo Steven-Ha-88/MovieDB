@@ -23,7 +23,7 @@ function ImageBanner(props) {
       fetchTrailers(endpointTv)
     }
 
-    
+        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const fetchTrailers = (endpoint) => {
@@ -100,6 +100,7 @@ function ImageBanner(props) {
                                         webkitallowfullscreen="webkitallowfullscreen" 
                                         style={{borderWidth: "0px"}} 
                                         width="100%" height="100%"
+                                        title="trailer"
                             src={`https://www.youtube.com/embed/${trailerId[0] && trailerId[0].key}`}>
                             </iframe>}
                 <span className="remove-modal" onClick={() => setOpen(false)}><b>X</b></span>
