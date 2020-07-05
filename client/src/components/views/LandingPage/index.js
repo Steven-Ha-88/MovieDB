@@ -5,13 +5,13 @@ import {
   IMAGE_BASE_URL,
   IMAGE_SIZE,
   POSTER_SIZE,
-} from "./../../Config";
+} from "../../Config";
 import ImageBanner from "./sections/ImageBanner";
 import styled from "styled-components";
 
 import { FilmCard } from "./sections/FilmCard";
 import "./styles.css";
-import { LoadingContainer } from "./../DetailsPage/sections/styles";
+import { LoadingContainer } from "../DetailsPage/sections/styles";
 
 export const MoviesScroll = styled.div`
   display: flex;

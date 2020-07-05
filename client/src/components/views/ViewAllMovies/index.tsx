@@ -10,7 +10,7 @@ const ViewAllMovies: React.FC<Props> = ({ path }) => {
   const buttonRef = useRef(null);
 
   const [Movies, setMovies] = useState<Array<any>>([]);
-  const [Loading, setLoading] = useState<boolean | boolean>(true);
+  const [Loading, setLoading] = useState<boolean>(true);
   const [CurrentPage, setCurrentPage] = useState<number>(0);
 
   useEffect(() => {

@@ -3,11 +3,11 @@ import { Route, Router } from "react-router-dom";
 import Auth from "../hoc/auth";
 // pages for this product
 import LandingPage from "./views/LandingPage/index.js";
-import SearchPage from "./views/SearchList/index";
+import SearchPage from "./views/SearchList/index.tsx";
 import LoginPage from "./views/LoginPage/LoginPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 import CastingPage from "./views/CastingPage/index";
-import NavBar from "./views/NavBar/NavBar";
+import NavBar from "./views/NavBar/NavBar.tsx";
 import Footer from "./views/Footer/Footer";
 import { DetailPage } from "./views/DetailsPage/index";
 import Favourite from "./views/Favourite/index";

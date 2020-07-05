@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from "./../../Config";
+import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from "../../Config";
 import RightMenu from "./Sections/RightMenu";
 import logo from "./../../../Images/logo2.png";
 import {
@@ -15,17 +15,26 @@ import {
   Text,
   Form,
 } from "./styles";
-import history from "./../../history";
+import history from "../../history";
 import FilmIcon from "./../../../Images/film_icon.png";
 import PersonIcon from "./../../../Images/cast.png";
 import { link } from "./../SearchList/index";
 import { Link } from "react-router-dom";
 
-const NavBar = (props) => {
+interface Props {
+  screen: boolean;
+}
+
+interface ListItemProps {
+  item: any;
+  image: string;
+}
+
+const NavBar: React.FC<Props> = (props) => {
   // const [visible, setVisible] = useState(false)
-  const [list, setList] = useState([]);
-  const [search, setSearch] = useState("");
-  const [toggle, setToggle] = useState(false);
+  const [list, setList] = useState<Array<any>>([]);
+  const [search, setSearch] = useState<string>("");
+  const [toggle, setToggle] = useState<boolean>(false);
 
   useEffect(() => {
     let searchURL = `${API_URL}search/multi?api_key=${API_KEY}&query=${search}&language=en-US`;
@@ -53,8 +62,8 @@ const NavBar = (props) => {
   //   setVisible(false)
   // };
 
-  const useTransparentHook = (height) => {
-    const [isTransparent, setTransparent] = useState(true);
+  const useTransparentHook = (height: number) => {
+    const [isTransparent, setTransparent] = useState<boolean>(true);
     useEffect(() => {
       function onScroll() {
         if (window.pageYOffset > height) {
@@ -69,7 +78,7 @@ const NavBar = (props) => {
     return isTransparent;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLInputElement>): void => {
     e.preventDefault();
 
     if (!search) {
@@ -80,7 +89,7 @@ const NavBar = (props) => {
     setSearch("");
   };
 
-  const ListItem = ({ item, image }) => {
+  const ListItem: React.FC<ListItemProps> = ({ item, image }) => {
     return (
       <>
         <a href={link(item.media_type, item.id)}>
@@ -149,7 +158,11 @@ const NavBar = (props) => {
       isTransparent={isTransparent}
       className='navbar navbar-expand-lg navbar-dark'>
       <Link className='navbar-brand' to='/'>
-        <img src={logo} alt='bebas-neue-font' border='0' width='80' />
+        <img
+          src={logo}
+          style={{ border: "0", width: "80px" }}
+          alt='bebas-neue-font'
+        />
       </Link>
       <div>
         <Form
@@ -162,7 +175,9 @@ const NavBar = (props) => {
           <Input
             value={search}
             placeholder='Search...'
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e: { target: { value: string } }) =>
+              setSearch(e.target.value)
+            }
             type='search'
             aria-label='Search'
           />
@@ -218,7 +233,9 @@ const NavBar = (props) => {
           <Input
             value={search}
             placeholder='Search...'
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e: { target: { value: string } }) =>
+              setSearch(e.target.value)
+            }
             type='search'
             aria-label='Search'
           />
