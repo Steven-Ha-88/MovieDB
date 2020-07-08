@@ -23,6 +23,7 @@ const LandingPage = (props) => {
   const [movies, setMovies] = useState([]);
   const [tv, setTv] = useState([]);
   const [trending, setTrend] = useState([]);
+  const [latest, setLatest] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const { path } = props;
@@ -31,6 +32,7 @@ const LandingPage = (props) => {
     const popular = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
     const popular_tv = `${API_URL}tv/popular?api_key=${API_KEY}&language=en-US&page=1`;
     const trend = `${API_URL}trending/all/day?api_key=${API_KEY}&language=en-US&page=1`;
+    const latest_movies = `${API_URL}movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`;
 
     window.scrollTo(0, 0);
     path(false);
@@ -41,6 +43,14 @@ const LandingPage = (props) => {
       .then((res) => {
         if (mounted) {
           setTrend(res.results);
+        }
+      });
+
+    fetch(latest_movies)
+      .then((res) => res.json())
+      .then((res) => {
+        if (mounted) {
+          setLatest(res.results);
         }
       });
 
@@ -72,7 +82,7 @@ const LandingPage = (props) => {
   }, []);
 
   const renderLanding = () => {
-    if (loading) {
+    if (loading || !latest.length) {
       return (
         <LoadingContainer>
           <div className='spinner-border' role='status'>
@@ -91,22 +101,20 @@ const LandingPage = (props) => {
             <div className='carousel-inner'>
               <div className='carousel-item active'>
                 <ImageBanner
-                  image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${movies[16].backdrop_path}`}
-                  movies={movies[16]}
+                  image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${latest[11].backdrop_path}`}
+                  movies={latest[11]}
                 />
               </div>
               <div className='carousel-item'>
                 <ImageBanner
-                  image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${
-                    movies[movies.length - 5].backdrop_path
-                  }`}
-                  movies={movies[movies.length - 5]}
+                  image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${latest[5].backdrop_path}`}
+                  movies={latest[5]}
                 />
               </div>
               <div className='carousel-item'>
                 <ImageBanner
-                  image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${movies[14].backdrop_path}`}
-                  movies={movies[14]}
+                  image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${latest[12].backdrop_path}`}
+                  movies={latest[12]}
                 />
               </div>
             </div>
@@ -130,6 +138,30 @@ const LandingPage = (props) => {
                 aria-hidden='true'></span>
               <span className='sr-only'>Next</span>
             </a>
+          </div>
+
+          {/* Latest */}
+          <div style={{ backgroundColor: "black", paddingTop: "20px" }}>
+            <h5 className='heading'>In Cinemas</h5>
+            <MoviesScroll>
+              {latest &&
+                latest.map((movie, index) => (
+                  <React.Fragment key={index}>
+                    <FilmCard
+                      image={
+                        movie.poster_path
+                          ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
+                          : null
+                      }
+                      movieId={movie.id}
+                      title={movie.original_title}
+                      type='movie'
+                      color='white'
+                      disable
+                    />
+                  </React.Fragment>
+                ))}
+            </MoviesScroll>
           </div>
 
           {/* Trending */}
@@ -181,6 +213,7 @@ const LandingPage = (props) => {
                 ))}
             </MoviesScroll>
           </div>
+
           {/* Latest Tv Series */}
           <div style={{ backgroundColor: "black", paddingTop: "10px" }}>
             <h5 className='heading'>Popular TV Series</h5>
