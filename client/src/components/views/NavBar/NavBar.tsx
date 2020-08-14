@@ -241,7 +241,7 @@ const NavBar: React.FC<Props> = (props) => {
           />
           {renderList()}
         </Form>
-        <div style={{ marginLeft: "10px" }}>
+        <div>
           <RightMenu />
         </div>
       </div>
